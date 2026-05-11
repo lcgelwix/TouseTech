@@ -1,0 +1,27 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 68px;
+  background: linear-gradient(
+    to bottom,
+    #050518 0%,
+    #150535 30%,
+    #4a1d96 62%,
+    #c4b5fd 83%,
+    #ffffff 100%
+  );
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoContainer svg {
+  width: clamp(200px, 38vw, 380px);
+  height: auto;
+  filter: drop-shadow(0 0 48px rgba(124, 58, 237, 0.65));
+}

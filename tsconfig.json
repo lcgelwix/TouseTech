@@ -2,5 +2,18 @@
   "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "files": [],
-  "references": []
+  "references": [
+    {
+      "path": "./packages/tousetech-e2e"
+    },
+    {
+      "path": "./packages/tousetech"
+    },
+    {
+      "path": "./packages/tousetech-web-e2e"
+    },
+    {
+      "path": "./packages/tousetech-web"
+    }
+  ]
 }

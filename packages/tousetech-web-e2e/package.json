@@ -1,0 +1,10 @@
+{
+  "name": "tousetech-web-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "tousetech-web"
+    ]
+  }
+}
