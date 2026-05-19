@@ -1,8 +1,7 @@
 .page {
   min-height: 100vh;
   padding: 108px 1.5rem 4rem;
-  background-color: #08080f !important;
-  background-image: none !important;
+  background: #08080f;
 }
 
 .container {
@@ -45,8 +44,8 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  background-color: #111118;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #111118;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
   padding: 1.25rem 1.5rem;
   text-decoration: none;
@@ -55,19 +54,19 @@
 }
 
 .infoCard:hover {
-  border-color: rgba(37, 99, 235, 0.55);
+  border-color: #2563eb;
 }
 
 .infoIcon {
   flex-shrink: 0;
   width: 2.5rem;
   height: 2.5rem;
-  background: rgba(37, 99, 235, 0.18);
+  background: #2563eb;
   border-radius: 0.6rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #2563eb;
+  color: #ffffff;
 }
 
 .infoIcon svg {
@@ -92,7 +91,7 @@
 }
 
 .formCard {
-  background-color: #111118;
+  background: #111118;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1.25rem;
   padding: 2rem;
@@ -152,8 +151,8 @@
 
 .field input,
 .field textarea {
-  background-color: rgba(255, 255, 255, 0.09);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0.6rem;
   color: #ffffff;
   font-family: inherit;
@@ -166,7 +165,7 @@
 
 .field input::placeholder,
 .field textarea::placeholder {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.28);
 }
 
 .field input:focus,
@@ -176,10 +175,10 @@
 
 .submit {
   align-self: flex-end;
-  background-color: #ffffff;
+  background: #2563eb;
   border: none;
   border-radius: 0.65rem;
-  color: #08080f;
+  color: #ffffff;
   cursor: pointer;
   font-family: inherit;
   font-size: 0.875rem;
@@ -190,7 +189,7 @@
 }
 
 .submit:hover:not(:disabled) {
-  background-color: #e2e8f0;
+  background: #1d4ed8;
   transform: translateY(-1px);
 }
 
