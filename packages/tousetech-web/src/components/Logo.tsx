@@ -6,16 +6,28 @@ export default function Logo() {
       aria-label="TouseTech logo"
       role="img"
     >
+      <defs>
+        <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#3b82f6" />
+          <stop offset="100%" stopColor="#1d4ed8" />
+        </linearGradient>
+        <filter id="blueGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="0" stdDeviation="4" floodColor="#2563eb" floodOpacity="0.55" />
+        </filter>
+      </defs>
+
       {/* White circle border */}
       <circle cx="130" cy="105" r="90" fill="none" stroke="white" strokeWidth="3.5" />
 
-      {/* T1 — white, starts higher, crossbar blends into T2 */}
-      <rect x="68" y="45" width="94" height="22" rx="2.5" fill="white" />
-      <rect x="106" y="67" width="18" height="82" rx="2.5" fill="white" />
+      {/* White T — crossbar has diagonal right edge where blue begins */}
+      <polygon points="68,55 138,55 124,77 68,77" fill="white" />
+      <rect x="103" y="77" width="18" height="78" rx="2" fill="white" />
 
-      {/* T2 — blue, crossbar flush with T1, split line further right for clean separation */}
-      <rect x="110" y="45" width="76" height="22" rx="2.5" fill="#2563eb" />
-      <rect x="132" y="67" width="18" height="82" rx="2.5" fill="#2563eb" />
+      {/* Blue T — matching diagonal left edge, gradient + glow for depth */}
+      <g filter="url(#blueGlow)">
+        <polygon points="138,55 186,55 186,77 124,77" fill="url(#blueGrad)" />
+        <rect x="130" y="77" width="18" height="78" rx="2" fill="url(#blueGrad)" />
+      </g>
 
       {/* Wordmark */}
       <text
