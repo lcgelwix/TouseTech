@@ -19,14 +19,25 @@ export default function Logo() {
       {/* White circle border */}
       <circle cx="130" cy="105" r="90" fill="none" stroke="white" strokeWidth="3.5" />
 
-      {/* White T — crossbar has diagonal right edge where blue begins */}
-      <polygon points="68,55 138,55 124,77 68,77" fill="white" />
-      <rect x="103" y="77" width="18" height="78" rx="2" fill="white" />
+      {/*
+        White T:
+        - Crossbar: chamfered top-left corner, diagonal right edge (the "split")
+        - 4px gap between white crossbar right edge and blue crossbar left edge (at top and bottom)
+        - Stem: connects flush to crossbar, chamfered bottom-left outer corner
+      */}
+      <path d="M 71,55 L 130,55 L 118,77 L 68,77 L 68,58 Z" fill="white" />
+      <path d="M 100,77 L 100,152 L 103,155 L 118,155 L 118,77 Z" fill="white" />
 
-      {/* Blue T — matching diagonal left edge, gradient + glow for depth */}
+      {/*
+        Blue T:
+        - Crossbar: 4px gap from white (starts at x=134 top, x=122 bottom), diagonal left edge,
+          chamfered top-right corner
+        - Stem: connects flush to crossbar, chamfered bottom-right outer corner
+        - 10px gap between white stem right (x=118) and blue stem left (x=128)
+      */}
       <g filter="url(#blueGlow)">
-        <polygon points="138,55 186,55 186,77 124,77" fill="url(#blueGrad)" />
-        <rect x="130" y="77" width="18" height="78" rx="2" fill="url(#blueGrad)" />
+        <path d="M 134,55 L 183,55 L 186,58 L 186,77 L 122,77 Z" fill="url(#blueGrad)" />
+        <path d="M 128,77 L 128,155 L 143,155 L 146,152 L 146,77 Z" fill="url(#blueGrad)" />
       </g>
 
       {/* Wordmark */}
