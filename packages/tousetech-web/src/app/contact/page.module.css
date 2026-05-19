@@ -1,14 +1,7 @@
 .page {
   min-height: 100vh;
   padding: 108px 1.5rem 4rem;
-  background: linear-gradient(
-    to bottom,
-    #050518 0%,
-    #150535 30%,
-    #4a1d96 62%,
-    #c4b5fd 83%,
-    #ffffff 100%
-  );
+  background: #08080f;
 }
 
 .container {
@@ -33,7 +26,7 @@
 }
 
 .subheading {
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(255, 255, 255, 0.55);
   font-size: 1rem;
   margin: 0;
 }
@@ -55,31 +48,30 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(167, 139, 250, 0.22);
+  background: #111118;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
   padding: 1.25rem 1.5rem;
   text-decoration: none;
   color: inherit;
-  transition: background 180ms ease, border-color 180ms ease;
-  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease;
 }
 
 .infoCard:hover {
-  background: rgba(124, 58, 237, 0.18);
-  border-color: rgba(167, 139, 250, 0.5);
+  background: #16161f;
+  border-color: rgba(37, 99, 235, 0.5);
 }
 
 .infoIcon {
   flex-shrink: 0;
   width: 2.5rem;
   height: 2.5rem;
-  background: rgba(124, 58, 237, 0.25);
+  background: rgba(37, 99, 235, 0.18);
   border-radius: 0.6rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #a78bfa;
+  color: #2563eb;
 }
 
 .infoIcon svg {
@@ -92,7 +84,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(167, 139, 250, 0.8);
+  color: #2563eb;
   margin: 0 0 0.2rem;
 }
 
@@ -105,12 +97,10 @@
 
 /* Form card */
 .formCard {
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(167, 139, 250, 0.22);
+  background: #111118;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1.25rem;
-  padding: 2rem 2rem;
+  padding: 2rem;
 }
 
 .formHeading {
@@ -118,7 +108,6 @@
   font-weight: 700;
   color: #fff;
   margin: 0 0 1.5rem;
-  letter-spacing: -0.01em;
 }
 
 .form {
@@ -156,7 +145,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(167, 139, 250, 0.85);
+  color: #fff;
 }
 
 .wordCount {
@@ -170,8 +159,8 @@
 
 .field input,
 .field textarea {
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(167, 139, 250, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0.6rem;
   color: #fff;
   font-family: inherit;
@@ -184,18 +173,18 @@
 
 .field input::placeholder,
 .field textarea::placeholder {
-  color: rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .field input:focus,
 .field textarea:focus {
-  border-color: rgba(167, 139, 250, 0.65);
-  background: rgba(255, 255, 255, 0.1);
+  border-color: #2563eb;
+  background: rgba(255, 255, 255, 0.11);
 }
 
 .submit {
   align-self: flex-end;
-  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  background: #2563eb;
   border: none;
   border-radius: 0.65rem;
   color: #fff;
@@ -205,11 +194,11 @@
   font-weight: 600;
   letter-spacing: 0.07em;
   padding: 0.75rem 2rem;
-  transition: opacity 200ms ease, transform 150ms ease;
+  transition: background 180ms ease, transform 150ms ease;
 }
 
 .submit:hover:not(:disabled) {
-  opacity: 0.88;
+  background: #1d4ed8;
   transform: translateY(-1px);
 }
 
@@ -222,10 +211,10 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: rgba(109, 40, 217, 0.18);
-  border: 1px solid rgba(167, 139, 250, 0.3);
+  background: rgba(37, 99, 235, 0.15);
+  border: 1px solid rgba(37, 99, 235, 0.35);
   border-radius: 0.75rem;
-  color: #c4b5fd;
+  color: #93c5fd;
   padding: 1.25rem 1.5rem;
   font-size: 0.95rem;
 }
@@ -234,7 +223,7 @@
   flex-shrink: 0;
   width: 1.6rem;
   height: 1.6rem;
-  color: #a78bfa;
+  color: #2563eb;
 }
 
 .successBox p {
@@ -252,7 +241,6 @@
   align-items: center;
   gap: 0.4rem;
   align-self: flex-start;
-  color: #6d28d9;
   font-size: 0.95rem;
   font-weight: 700;
   text-decoration: none;
@@ -261,8 +249,4 @@
 .backButton svg {
   width: 1rem;
   height: 1rem;
-}
-
-.backButton:hover {
-  color: #6d28d9;
 }

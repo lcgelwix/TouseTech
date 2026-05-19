@@ -4,14 +4,7 @@
   align-items: center;
   justify-content: center;
   padding-top: 68px;
-  background: linear-gradient(
-    to bottom,
-    #050518 0%,
-    #150535 30%,
-    #4a1d96 62%,
-    #c4b5fd 83%,
-    #ffffff 100%
-  );
+  background: #08080f;
 }
 
 .logoContainer {
@@ -23,5 +16,5 @@
 .logoContainer svg {
   width: clamp(200px, 38vw, 380px);
   height: auto;
-  filter: drop-shadow(0 0 48px rgba(37, 99, 235, 0.7));
+  filter: drop-shadow(0 0 48px rgba(37, 99, 235, 0.55));
 }
