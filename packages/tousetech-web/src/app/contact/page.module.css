@@ -1,7 +1,8 @@
 .page {
   min-height: 100vh;
   padding: 108px 1.5rem 4rem;
-  background: #08080f;
+  background-color: #08080f !important;
+  background-image: none !important;
 }
 
 .container {
@@ -12,7 +13,6 @@
   gap: 2rem;
 }
 
-/* Header */
 .header {
   text-align: center;
 }
@@ -20,7 +20,7 @@
 .heading {
   font-size: 2.25rem;
   font-weight: 800;
-  color: #fff;
+  color: #ffffff;
   margin: 0 0 0.5rem;
   letter-spacing: -0.02em;
 }
@@ -31,7 +31,6 @@
   margin: 0;
 }
 
-/* Info cards */
 .infoGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -39,27 +38,24 @@
 }
 
 @media (max-width: 500px) {
-  .infoGrid {
-    grid-template-columns: 1fr;
-  }
+  .infoGrid { grid-template-columns: 1fr; }
 }
 
 .infoCard {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: #111118;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #111118;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 1rem;
   padding: 1.25rem 1.5rem;
   text-decoration: none;
-  color: inherit;
-  transition: border-color 180ms ease, background 180ms ease;
+  color: #ffffff;
+  transition: border-color 180ms ease;
 }
 
 .infoCard:hover {
-  background: #16161f;
-  border-color: rgba(37, 99, 235, 0.5);
+  border-color: rgba(37, 99, 235, 0.55);
 }
 
 .infoIcon {
@@ -91,13 +87,12 @@
 .infoValue {
   font-size: 0.95rem;
   font-weight: 500;
-  color: #fff;
+  color: #ffffff;
   margin: 0;
 }
 
-/* Form card */
 .formCard {
-  background: #111118;
+  background-color: #111118;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1.25rem;
   padding: 2rem;
@@ -106,7 +101,7 @@
 .formHeading {
   font-size: 1.15rem;
   font-weight: 700;
-  color: #fff;
+  color: #ffffff;
   margin: 0 0 1.5rem;
 }
 
@@ -123,9 +118,7 @@
 }
 
 @media (max-width: 500px) {
-  .row {
-    grid-template-columns: 1fr;
-  }
+  .row { grid-template-columns: 1fr; }
 }
 
 .field {
@@ -145,7 +138,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #fff;
+  color: #ffffff;
 }
 
 .wordCount {
@@ -159,16 +152,16 @@
 
 .field input,
 .field textarea {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 0.6rem;
-  color: #fff;
+  color: #ffffff;
   font-family: inherit;
   font-size: 0.95rem;
   padding: 0.65rem 0.9rem;
   outline: none;
-  transition: border-color 180ms ease, background 180ms ease;
   resize: vertical;
+  transition: border-color 180ms ease;
 }
 
 .field input::placeholder,
@@ -179,26 +172,25 @@
 .field input:focus,
 .field textarea:focus {
   border-color: #2563eb;
-  background: rgba(255, 255, 255, 0.11);
 }
 
 .submit {
   align-self: flex-end;
-  background: #2563eb;
+  background-color: #ffffff;
   border: none;
   border-radius: 0.65rem;
-  color: #fff;
+  color: #08080f;
   cursor: pointer;
   font-family: inherit;
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.07em;
   padding: 0.75rem 2rem;
   transition: background 180ms ease, transform 150ms ease;
 }
 
 .submit:hover:not(:disabled) {
-  background: #1d4ed8;
+  background-color: #e2e8f0;
   transform: translateY(-1px);
 }
 
@@ -226,9 +218,7 @@
   color: #2563eb;
 }
 
-.successBox p {
-  margin: 0;
-}
+.successBox p { margin: 0; }
 
 .errorMsg {
   color: #f87171;

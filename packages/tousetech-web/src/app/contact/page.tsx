@@ -158,8 +158,8 @@ export default function ContactPage() {
           </div>
 
           {/* Back to homepage */}
-          <Link href="/" className={styles.backButton} style={{ color: '#7c3aed' }}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2">
+          <Link href="/" className={styles.backButton} style={{ color: '#ffffff' }}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
             Back to Home
