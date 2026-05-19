@@ -252,11 +252,10 @@
   align-items: center;
   gap: 0.4rem;
   align-self: flex-start;
-  color: #a78bfa;
-  font-size: 0.875rem;
-  font-weight: 600;
+  color: #6d28d9;
+  font-size: 0.95rem;
+  font-weight: 700;
   text-decoration: none;
-  transition: color 180ms ease;
 }
 
 .backButton svg {
@@ -265,5 +264,5 @@
 }
 
 .backButton:hover {
-  color: #a78bfa;
+  color: #6d28d9;
 }
