@@ -1,6 +1,0 @@
-{
-  "buildCommand": "cd packages/tousetech-web && npx next build",
-  "outputDirectory": "packages/tousetech-web/.next",
-  "framework": "nextjs",
-  "installCommand": "npm install"
-}
