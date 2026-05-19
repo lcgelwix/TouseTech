@@ -9,37 +9,124 @@
   justify-content: space-between;
   padding: 0 2.5rem;
   height: 68px;
-  background: rgba(8, 8, 15, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(8, 8, 15, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .brand {
-  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #fff;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+.brandLogo {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
 }
 
 .links {
   display: flex;
-  gap: 2.5rem;
+  gap: 2.2rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .links a {
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.65);
   font-size: 0.825rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   transition: color 180ms ease;
 }
 
 .links a:hover {
-  color: #2563eb;
+  color: #ffffff;
+}
+
+.ctaBtn {
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.4rem;
+  border-radius: 0.5rem;
+  transition: background 180ms ease, transform 150ms ease, box-shadow 180ms ease;
+}
+
+.ctaBtn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 250ms ease, opacity 250ms ease;
+}
+
+.barTop { transform: translateY(7px) rotate(45deg); }
+.barMid { opacity: 0; }
+.barBot { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .ctaBtn { display: none; }
+
+  .links {
+    position: fixed;
+    top: 68px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(8, 8, 15, 0.97);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 1rem 0;
+    transform: translateY(-110%);
+    opacity: 0;
+    transition: transform 300ms ease, opacity 300ms ease;
+    pointer-events: none;
+  }
+
+  .links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .links li {
+    padding: 0.85rem 2.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .links a {
+    font-size: 0.9rem;
+  }
 }
