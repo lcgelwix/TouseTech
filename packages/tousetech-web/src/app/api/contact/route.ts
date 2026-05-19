@@ -2,9 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 export async function POST(req: NextRequest) {
-  const { name, email, subject, message } = await req.json();
+  const { name, email, comments } = await req.json();
 
-  if (!name || !email || !subject || !message) {
+  if (!name || !email || !comments) {
     return NextResponse.json({ error: 'All fields are required.' }, { status: 400 });
   }
 
@@ -22,14 +22,13 @@ export async function POST(req: NextRequest) {
     from: `"TouseTech Contact" <${process.env.SMTP_USER}>`,
     to: process.env.CONTACT_TO_EMAIL,
     replyTo: email,
-    subject: `[TouseTech] ${subject}`,
+    subject: `[TouseTech] Question / Comment from ${name}`,
     html: `
-      <h2>New contact form submission</h2>
+      <h2>New question / comment from ${name}</h2>
       <p><strong>Name:</strong> ${name}</p>
       <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Subject:</strong> ${subject}</p>
       <hr />
-      <p>${message.replace(/\n/g, '<br />')}</p>
+      <p>${comments.replace(/\n/g, '<br />')}</p>
     `,
   });
 
