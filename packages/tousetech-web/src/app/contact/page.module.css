@@ -1,0 +1,152 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 1.5rem 3rem;
+  background: linear-gradient(
+    to bottom,
+    #050518 0%,
+    #150535 30%,
+    #4a1d96 62%,
+    #c4b5fd 83%,
+    #ffffff 100%
+  );
+}
+
+.card {
+  width: 100%;
+  max-width: 660px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  border-radius: 1.25rem;
+  padding: 2.75rem 2.5rem;
+  box-shadow: 0 8px 48px rgba(109, 40, 217, 0.25);
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.subheading {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+  margin: 0 0 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 520px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(167, 139, 250, 0.9);
+}
+
+.field input,
+.field textarea {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 0.6rem;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 0.7rem 1rem;
+  outline: none;
+  transition: border-color 180ms ease, background 180ms ease;
+  resize: none;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: rgba(167, 139, 250, 0.7);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.submit {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  border: none;
+  border-radius: 0.65rem;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0.8rem 2rem;
+  transition: opacity 200ms ease, transform 150ms ease;
+}
+
+.submit:hover:not(:disabled) {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.successBox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(109, 40, 217, 0.2);
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  border-radius: 0.75rem;
+  color: #c4b5fd;
+  padding: 1.25rem 1.5rem;
+  font-size: 1rem;
+}
+
+.successBox svg {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: #a78bfa;
+}
+
+.successBox p {
+  margin: 0;
+}
+
+.errorMsg {
+  color: #f87171;
+  font-size: 0.875rem;
+  margin: 0;
+}
