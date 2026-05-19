@@ -246,3 +246,24 @@
   font-size: 0.8rem;
   margin: 0;
 }
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  align-self: flex-start;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.backButton svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.backButton:hover {
+  color: #a78bfa;
+}

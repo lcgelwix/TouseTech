@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import Navbar from '../../components/Navbar';
 import styles from './page.module.css';
 
@@ -155,6 +156,15 @@ export default function ContactPage() {
               </form>
             )}
           </div>
+
+          {/* Back to homepage */}
+          <Link href="/" className={styles.backButton}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Home
+          </Link>
+
         </div>
       </main>
     </>
