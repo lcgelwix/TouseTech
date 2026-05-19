@@ -23,5 +23,5 @@
 .logoContainer svg {
   width: clamp(200px, 38vw, 380px);
   height: auto;
-  filter: drop-shadow(0 0 48px rgba(124, 58, 237, 0.65));
+  filter: drop-shadow(0 0 48px rgba(37, 99, 235, 0.7));
 }
