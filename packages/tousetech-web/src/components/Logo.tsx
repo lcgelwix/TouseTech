@@ -13,9 +13,9 @@ export default function Logo() {
       <rect x="68" y="45" width="94" height="22" rx="2.5" fill="white" />
       <rect x="106" y="67" width="18" height="82" rx="2.5" fill="white" />
 
-      {/* T2 — blue, crossbar overlaps T1 crossbar creating one merged top */}
-      <rect x="92" y="58" width="94" height="22" rx="2.5" fill="#2563eb" />
-      <rect x="130" y="80" width="18" height="82" rx="2.5" fill="#2563eb" />
+      {/* T2 — blue, crossbar flush with T1 crossbar at same height */}
+      <rect x="92" y="45" width="94" height="22" rx="2.5" fill="#2563eb" />
+      <rect x="130" y="67" width="18" height="82" rx="2.5" fill="#2563eb" />
 
       {/* Wordmark */}
       <text
