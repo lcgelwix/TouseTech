@@ -518,32 +518,61 @@ const projects = [
     accent: '#22c55e',
     url: 'apexfitness.com',
     mockup: (
-      <div style={{ padding: '10px 12px 12px', display: 'flex', flexDirection: 'column', gap: 6 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ fontSize: 6, fontWeight: 800, color: '#22c55e', letterSpacing: '0.1em' }}>APEX FITNESS</span>
-          <div style={{ display: 'flex', gap: 4 }}>
-            {[20, 22, 18].map((w, i) => <div key={i} style={{ width: w, height: 4, background: 'rgba(255,255,255,0.14)', borderRadius: 2 }} />)}
+      <div style={{ fontFamily: 'inherit', color: '#fff' }}>
+        {/* Nav */}
+        <div style={{ background: '#0a140c', borderBottom: '1px solid rgba(34,197,94,0.2)', padding: '6px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+            {/* Logo mark: green circle + white dumbbell */}
+            <svg viewBox="0 0 28 28" width="22" height="22" style={{ flexShrink: 0 }}>
+              <circle cx="14" cy="14" r="13" fill="#22c55e"/>
+              <rect x="3" y="11.5" width="3" height="5" rx="1" fill="white"/>
+              <rect x="22" y="11.5" width="3" height="5" rx="1" fill="white"/>
+              <rect x="6"  y="10"  width="3.5" height="8" rx="0.5" fill="white"/>
+              <rect x="18.5" y="10" width="3.5" height="8" rx="0.5" fill="white"/>
+              <rect x="9.5" y="12.5" width="9" height="3" rx="1" fill="white"/>
+            </svg>
+            <span style={{ fontSize: 6.5, fontWeight: 900, color: '#22c55e', letterSpacing: '0.06em' }}>APEX FITNESS</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+            {['Classes', 'Plans'].map(l => <span key={l} style={{ fontSize: 5, color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>{l}</span>)}
+            <div style={{ background: '#22c55e', borderRadius: 2, padding: '2px 6px', fontSize: 5, fontWeight: 700, color: '#fff' }}>JOIN NOW</div>
           </div>
         </div>
-        <div style={{ background: 'linear-gradient(135deg, rgba(34,197,94,0.12), rgba(34,197,94,0.03))', border: '1px solid rgba(34,197,94,0.18)', borderRadius: 5, padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 4 }}>
-          <div style={{ width: '78%', height: 8, background: 'rgba(255,255,255,0.72)', borderRadius: 3 }} />
-          <div style={{ width: '55%', height: 5, background: 'rgba(255,255,255,0.28)', borderRadius: 3 }} />
-          <div style={{ display: 'flex', gap: 5, marginTop: 2 }}>
-            <div style={{ width: 46, height: 15, background: '#22c55e', borderRadius: 3 }} />
-            <div style={{ width: 36, height: 15, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.14)', borderRadius: 3 }} />
+        {/* Hero */}
+        <div style={{ background: 'linear-gradient(135deg, rgba(34,197,94,0.13), rgba(34,197,94,0.02))', padding: '11px 12px 9px', borderBottom: '1px solid rgba(34,197,94,0.1)', position: 'relative', overflow: 'hidden' }}>
+          <svg viewBox="0 0 80 80" fill="none" stroke="#22c55e" strokeWidth="5" strokeLinecap="round" width="64" height="64" style={{ position: 'absolute', right: -10, top: -10, opacity: 0.07, pointerEvents: 'none' }}>
+            <rect x="8" y="28" width="10" height="24" rx="3"/><rect x="62" y="28" width="10" height="24" rx="3"/>
+            <rect x="18" y="22" width="8" height="36" rx="2"/><rect x="54" y="22" width="8" height="36" rx="2"/>
+            <line x1="26" y1="40" x2="54" y2="40"/>
+          </svg>
+          <div style={{ fontSize: 5, fontWeight: 700, color: '#22c55e', letterSpacing: '0.14em', marginBottom: 3 }}>MICHIGAN'S #1 GYM</div>
+          <div style={{ fontSize: 9.5, fontWeight: 900, color: '#fff', lineHeight: 1.2, marginBottom: 4, maxWidth: '68%' }}>Transform Your Body.</div>
+          <div style={{ fontSize: 6, color: 'rgba(255,255,255,0.42)', lineHeight: 1.55, marginBottom: 6, maxWidth: '60%' }}>Expert trainers, modern equipment, results-driven classes.</div>
+          <div style={{ display: 'flex', gap: 4, marginBottom: 7 }}>
+            <div style={{ background: '#22c55e', borderRadius: 2, padding: '3px 8px', fontSize: 5.5, fontWeight: 700 }}>Get Started</div>
+            <div style={{ border: '1px solid rgba(255,255,255,0.18)', borderRadius: 2, padding: '3px 7px', fontSize: 5.5, color: 'rgba(255,255,255,0.5)', fontWeight: 600 }}>View Classes</div>
+          </div>
+          <div style={{ display: 'flex', gap: 12 }}>
+            {[['500+', 'Members'], ['20+', 'Classes'], ['★ 5.0', 'Rating']].map(([v, l]) => (
+              <div key={l}><div style={{ fontSize: 7.5, fontWeight: 800, color: '#22c55e' }}>{v}</div><div style={{ fontSize: 4.5, color: 'rgba(255,255,255,0.3)' }}>{l}</div></div>
+            ))}
           </div>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 4 }}>
-          {[
-            { label: 'Strength', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" width="11" height="11"><path d="M7 8v8M17 8v8M4 10v4M20 10v4M7 12h10"/></svg> },
-            { label: 'Cardio',   svg: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="11" height="11"><path d="M3 12h3l2-6 4 12 3-8 2 2h4"/></svg> },
-            { label: 'HIIT',    svg: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="11" height="11"><path d="M13 2L4 14h8l-1 8 9-12h-8l1-8z"/></svg> },
-          ].map(({ label, svg }) => (
-            <div key={label} style={{ background: 'rgba(34,197,94,0.07)', border: '1px solid rgba(34,197,94,0.2)', borderRadius: 4, padding: '6px 4px', display: 'flex', flexDirection: 'column', gap: 3, alignItems: 'center' }}>
-              {svg}
-              <span style={{ fontSize: 5, color: 'rgba(255,255,255,0.6)', fontWeight: 700 }}>{label}</span>
-            </div>
-          ))}
+        {/* Classes */}
+        <div style={{ padding: '8px 12px 11px' }}>
+          <div style={{ fontSize: 4.5, fontWeight: 700, color: 'rgba(255,255,255,0.28)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 5 }}>Our Classes</div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 4 }}>
+            {[
+              { label: 'Strength', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" width="12" height="12"><path d="M7 8v8M17 8v8M4 10v4M20 10v4M7 12h10"/></svg> },
+              { label: 'Cardio',   svg: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="12" height="12"><path d="M3 12h3l2-6 4 12 3-8 2 2h4"/></svg> },
+              { label: 'HIIT',    svg: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="12" height="12"><path d="M13 2L4 14h8l-1 8 9-12h-8l1-8z"/></svg> },
+            ].map(({ label, svg }) => (
+              <div key={label} style={{ background: 'rgba(34,197,94,0.07)', border: '1px solid rgba(34,197,94,0.18)', borderRadius: 4, padding: '6px 4px', display: 'flex', flexDirection: 'column', gap: 3, alignItems: 'center' }}>
+                {svg}
+                <span style={{ fontSize: 5, color: 'rgba(255,255,255,0.65)', fontWeight: 700 }}>{label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     ),
@@ -551,7 +580,10 @@ const projects = [
       <div style={{ background: '#08100a', fontFamily: 'inherit', color: '#fff' }}>
         {/* Nav */}
         <div style={{ background: '#0a140c', borderBottom: '1px solid rgba(34,197,94,0.15)', padding: '10px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ fontSize: 11, fontWeight: 900, color: '#22c55e', letterSpacing: '0.12em' }}>APEX FITNESS</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <svg viewBox="0 0 28 28" width="28" height="28"><circle cx="14" cy="14" r="13" fill="#22c55e"/><rect x="3" y="11.5" width="3" height="5" rx="1" fill="white"/><rect x="22" y="11.5" width="3" height="5" rx="1" fill="white"/><rect x="6" y="10" width="3.5" height="8" rx="0.5" fill="white"/><rect x="18.5" y="10" width="3.5" height="8" rx="0.5" fill="white"/><rect x="9.5" y="12.5" width="9" height="3" rx="1" fill="white"/></svg>
+            <span style={{ fontSize: 11, fontWeight: 900, color: '#22c55e', letterSpacing: '0.12em' }}>APEX FITNESS</span>
+          </div>
           <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
             {['Home', 'Classes', 'Membership', 'Contact'].map(item => (
               <span key={item} style={{ fontSize: 9, color: 'rgba(255,255,255,0.55)', fontWeight: 500 }}>{item}</span>
@@ -631,36 +663,57 @@ const projects = [
     accent: '#f97316',
     url: 'harborgrill.com',
     mockup: (
-      <div style={{ padding: '10px 12px 12px', display: 'flex', flexDirection: 'column', gap: 6 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ fontSize: 6, fontWeight: 800, color: '#f97316', letterSpacing: '0.06em' }}>HARBOR GRILL</span>
-          <div style={{ width: 42, height: 14, background: '#f97316', borderRadius: 3 }} />
-        </div>
-        <div style={{ background: 'linear-gradient(135deg, rgba(249,115,22,0.12), rgba(249,115,22,0.03))', border: '1px solid rgba(249,115,22,0.18)', borderRadius: 5, padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 4 }}>
-          <div style={{ width: '68%', height: 8, background: 'rgba(255,255,255,0.72)', borderRadius: 3 }} />
-          <div style={{ width: '46%', height: 5, background: 'rgba(255,255,255,0.28)', borderRadius: 3 }} />
-          <div style={{ display: 'flex', gap: 5, marginTop: 2 }}>
-            <div style={{ width: 52, height: 15, background: '#f97316', borderRadius: 3 }} />
-            <div style={{ width: 40, height: 15, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.14)', borderRadius: 3 }} />
+      <div style={{ fontFamily: 'inherit', color: '#fff' }}>
+        {/* Nav */}
+        <div style={{ background: '#120d08', borderBottom: '1px solid rgba(249,115,22,0.2)', padding: '6px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+            {/* Logo mark: orange circle + white anchor */}
+            <svg viewBox="0 0 28 28" width="22" height="22" style={{ flexShrink: 0 }}>
+              <circle cx="14" cy="14" r="13" fill="#f97316"/>
+              <circle cx="14" cy="8" r="2.2" fill="none" stroke="white" strokeWidth="1.5"/>
+              <line x1="14" y1="10.2" x2="14" y2="22" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+              <line x1="9" y1="15" x2="19" y2="15" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M9 22 Q9 18 14 18 Q19 18 19 22" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+            <span style={{ fontSize: 6.5, fontWeight: 900, color: '#f97316', letterSpacing: '0.05em' }}>HARBOR GRILL</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+            {['Menu', 'About'].map(l => <span key={l} style={{ fontSize: 5, color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>{l}</span>)}
+            <div style={{ background: '#f97316', borderRadius: 2, padding: '2px 6px', fontSize: 5, fontWeight: 700, color: '#fff' }}>RESERVE</div>
           </div>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-          {[
-            { name: 'Grilled Salmon', price: '$24', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="9" height="9"><path d="M2 12s5-7 10-7 8 4 8 7-3 7-8 7S2 12 2 12z"/><circle cx="16" cy="10" r="1" fill="#f97316" stroke="none"/></svg> },
-            { name: 'Fish & Chips',  price: '$18', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" width="9" height="9"><path d="M8 3v3a3 3 0 006 0V3"/><line x1="11" y1="6" x2="11" y2="20"/><line x1="18" y1="4" x2="18" y2="20"/></svg> },
-            { name: 'Clam Chowder', price: '$12', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" width="9" height="9"><path d="M5 9h14l-1 9a2 2 0 01-2 2H8a2 2 0 01-2-2L5 9z"/><path d="M3 9h18"/><path d="M10 5a2 2 0 014 0v4"/></svg> },
-          ].map(({ name, price, svg }) => (
-            <div key={name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '4px 7px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 4, gap: 4 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 4, flex: 1 }}>
-                {svg}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                  <div style={{ width: 50, height: 5, background: 'rgba(255,255,255,0.55)', borderRadius: 2 }} />
-                  <div style={{ width: 32, height: 3, background: 'rgba(255,255,255,0.18)', borderRadius: 2 }} />
-                </div>
+        {/* Hero */}
+        <div style={{ background: 'linear-gradient(135deg, rgba(249,115,22,0.13), rgba(249,115,22,0.02))', padding: '11px 12px 9px', borderBottom: '1px solid rgba(249,115,22,0.1)', position: 'relative', overflow: 'hidden' }}>
+          {/* Watermark fish */}
+          <svg viewBox="0 0 80 50" fill="none" stroke="#f97316" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" width="70" height="44" style={{ position: 'absolute', right: -8, top: 2, opacity: 0.07, pointerEvents: 'none' }}>
+            <path d="M5 25 C5 25 20 5 40 5 C55 5 65 15 65 25 C65 35 55 45 40 45 C20 45 5 25 5 25Z"/>
+            <path d="M65 25 L75 10 L75 40 Z" fill="#f97316" stroke="none"/>
+            <circle cx="52" cy="18" r="3" fill="#f97316" stroke="none"/>
+          </svg>
+          <div style={{ fontSize: 5, fontWeight: 700, color: '#f97316', letterSpacing: '0.14em', marginBottom: 3 }}>WATERFRONT DINING</div>
+          <div style={{ fontSize: 9.5, fontWeight: 900, color: '#fff', lineHeight: 1.2, marginBottom: 4, maxWidth: '68%' }}>Fresh From The Sea.</div>
+          <div style={{ fontSize: 6, color: 'rgba(255,255,255,0.42)', lineHeight: 1.55, marginBottom: 6, maxWidth: '62%' }}>Locally sourced seafood served in a warm waterfront atmosphere.</div>
+          <div style={{ display: 'flex', gap: 4 }}>
+            <div style={{ background: '#f97316', borderRadius: 2, padding: '3px 8px', fontSize: 5.5, fontWeight: 700 }}>View Menu</div>
+            <div style={{ border: '1px solid rgba(255,255,255,0.18)', borderRadius: 2, padding: '3px 7px', fontSize: 5.5, color: 'rgba(255,255,255,0.5)', fontWeight: 600 }}>Reserve Table</div>
+          </div>
+        </div>
+        {/* Menu items */}
+        <div style={{ padding: '8px 12px 11px' }}>
+          <div style={{ fontSize: 4.5, fontWeight: 700, color: 'rgba(255,255,255,0.28)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 5 }}>Menu Highlights</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 3.5 }}>
+            {[
+              { name: 'Grilled Salmon',  price: '$24', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="10" height="10"><path d="M2 12s5-7 10-7 8 4 8 7-3 7-8 7S2 12 2 12z"/><circle cx="16" cy="10" r="1" fill="#f97316" stroke="none"/></svg> },
+              { name: 'Fish & Chips',    price: '$18', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" width="10" height="10"><path d="M8 3v3a3 3 0 006 0V3"/><line x1="11" y1="6" x2="11" y2="20"/><line x1="18" y1="4" x2="18" y2="20"/></svg> },
+              { name: 'Clam Chowder',   price: '$12', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" width="10" height="10"><path d="M5 9h14l-1 9a2 2 0 01-2 2H8a2 2 0 01-2-2L5 9z"/><path d="M3 9h18"/></svg> },
+            ].map(({ name, price, svg }) => (
+              <div key={name} style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '3.5px 7px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 4 }}>
+                <div style={{ width: 16, height: 16, background: 'rgba(249,115,22,0.15)', border: '1px solid rgba(249,115,22,0.25)', borderRadius: 3, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{svg}</div>
+                <span style={{ fontSize: 6, color: 'rgba(255,255,255,0.7)', fontWeight: 600, flex: 1 }}>{name}</span>
+                <span style={{ fontSize: 6.5, fontWeight: 800, color: '#f97316' }}>{price}</span>
               </div>
-              <span style={{ fontSize: 6, fontWeight: 800, color: '#f97316', flexShrink: 0 }}>{price}</span>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     ),
@@ -668,7 +721,10 @@ const projects = [
       <div style={{ background: '#0d0a07', fontFamily: 'inherit', color: '#fff' }}>
         {/* Nav */}
         <div style={{ background: '#120d08', borderBottom: '1px solid rgba(249,115,22,0.15)', padding: '10px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ fontSize: 11, fontWeight: 900, color: '#f97316', letterSpacing: '0.08em' }}>HARBOR GRILL</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <svg viewBox="0 0 28 28" width="28" height="28"><circle cx="14" cy="14" r="13" fill="#f97316"/><circle cx="14" cy="8" r="2.2" fill="none" stroke="white" strokeWidth="1.5"/><line x1="14" y1="10.2" x2="14" y2="22" stroke="white" strokeWidth="1.5" strokeLinecap="round"/><line x1="9" y1="15" x2="19" y2="15" stroke="white" strokeWidth="1.5" strokeLinecap="round"/><path d="M9 22 Q9 18 14 18 Q19 18 19 22" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round"/></svg>
+            <span style={{ fontSize: 11, fontWeight: 900, color: '#f97316', letterSpacing: '0.08em' }}>HARBOR GRILL</span>
+          </div>
           <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
             {['Menu', 'About', 'Reservations', 'Contact'].map(item => (
               <span key={item} style={{ fontSize: 9, color: 'rgba(255,255,255,0.55)', fontWeight: 500 }}>{item}</span>
@@ -742,24 +798,61 @@ const projects = [
     accent: '#a855f7',
     url: 'precisionbarbers.com',
     mockup: (
-      <div style={{ padding: '10px 12px 12px', display: 'flex', flexDirection: 'column', gap: 6 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ fontSize: 6, fontWeight: 800, color: '#a855f7', letterSpacing: '0.08em' }}>PRECISION</span>
-          <div style={{ width: 38, height: 14, background: '#a855f7', borderRadius: 3 }} />
-        </div>
-        <div style={{ background: 'linear-gradient(135deg, rgba(168,85,247,0.12), rgba(168,85,247,0.03))', border: '1px solid rgba(168,85,247,0.18)', borderRadius: 5, padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 4 }}>
-          <div style={{ width: '72%', height: 8, background: 'rgba(255,255,255,0.72)', borderRadius: 3 }} />
-          <div style={{ width: '52%', height: 5, background: 'rgba(255,255,255,0.28)', borderRadius: 3 }} />
-          <div style={{ width: 48, height: 15, background: '#a855f7', borderRadius: 3, marginTop: 2 }} />
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 3 }}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="2.5" strokeLinecap="round" width="8" height="8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-            <span style={{ fontSize: 5, fontWeight: 700, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Available Today</span>
+      <div style={{ fontFamily: 'inherit', color: '#fff' }}>
+        {/* Nav */}
+        <div style={{ background: '#0d0a14', borderBottom: '1px solid rgba(168,85,247,0.2)', padding: '6px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+            {/* Logo mark: purple circle + white scissors */}
+            <svg viewBox="0 0 28 28" width="22" height="22" style={{ flexShrink: 0 }}>
+              <circle cx="14" cy="14" r="13" fill="#a855f7"/>
+              <circle cx="9" cy="10" r="3" fill="none" stroke="white" strokeWidth="1.5"/>
+              <circle cx="9" cy="18" r="3" fill="none" stroke="white" strokeWidth="1.5"/>
+              <line x1="11.5" y1="12.5" x2="21" y2="21" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+              <line x1="11.5" y1="15.5" x2="21" y2="7"  stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+            <span style={{ fontSize: 6.5, fontWeight: 900, color: '#a855f7', letterSpacing: '0.06em' }}>PRECISION BARBERS</span>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 3 }}>
-            {['9:00 AM', '11:30 AM', '1:00 PM', '2:30 PM', '4:00 PM', '5:30 PM'].map((time, i) => (
-              <div key={time} style={{ background: i === 1 ? '#a855f7' : 'rgba(168,85,247,0.1)', border: `1px solid ${i === 1 ? '#a855f7' : 'rgba(168,85,247,0.28)'}`, borderRadius: 3, padding: '3px 0', textAlign: 'center', fontSize: 5, color: i === 1 ? '#fff' : 'rgba(255,255,255,0.65)', fontWeight: 600 }}>{time}</div>
+          <div style={{ background: '#a855f7', borderRadius: 2, padding: '2px 6px', fontSize: 5, fontWeight: 700, color: '#fff' }}>BOOK NOW</div>
+        </div>
+        {/* Hero */}
+        <div style={{ background: 'linear-gradient(135deg, rgba(168,85,247,0.13), rgba(168,85,247,0.02))', padding: '11px 12px 9px', borderBottom: '1px solid rgba(168,85,247,0.1)', position: 'relative', overflow: 'hidden' }}>
+          {/* Watermark scissors */}
+          <svg viewBox="0 0 80 80" fill="none" stroke="#a855f7" strokeWidth="4" strokeLinecap="round" width="60" height="60" style={{ position: 'absolute', right: -6, top: -6, opacity: 0.08, pointerEvents: 'none' }}>
+            <circle cx="18" cy="22" r="10"/><circle cx="18" cy="58" r="10"/>
+            <line x1="26" y1="28" x2="70" y2="70"/><line x1="26" y1="52" x2="70" y2="10"/>
+          </svg>
+          <div style={{ fontSize: 5, fontWeight: 700, color: '#a855f7', letterSpacing: '0.14em', marginBottom: 3 }}>EXPERT BARBERS</div>
+          <div style={{ fontSize: 9.5, fontWeight: 900, color: '#fff', lineHeight: 1.2, marginBottom: 4, maxWidth: '68%' }}>Your Perfect Cut.</div>
+          <div style={{ fontSize: 6, color: 'rgba(255,255,255,0.42)', lineHeight: 1.55, marginBottom: 6, maxWidth: '60%' }}>Modern techniques, classic craftsmanship. Book in seconds.</div>
+          <div style={{ background: '#a855f7', borderRadius: 2, padding: '3px 8px', fontSize: 5.5, fontWeight: 700, display: 'inline-block', marginBottom: 7 }}>Book Appointment</div>
+        </div>
+        {/* Services */}
+        <div style={{ padding: '8px 12px 5px' }}>
+          <div style={{ fontSize: 4.5, fontWeight: 700, color: 'rgba(255,255,255,0.28)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 5 }}>Services</div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 3.5 }}>
+            {[
+              { name: 'Classic Cut', price: '$30', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" width="10" height="10"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="9" y1="9" x2="20" y2="20"/><line x1="9" y1="15" x2="20" y2="4"/></svg> },
+              { name: 'Skin Fade',   price: '$35', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" width="10" height="10"><rect x="4" y="8" width="16" height="8" rx="2"/><line x1="4" y1="12" x2="20" y2="12"/><path d="M8 8V6a2 2 0 014 0v2"/></svg> },
+              { name: 'Beard Trim', price: '$20', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" width="10" height="10"><path d="M12 3a4 4 0 014 4v2c0 2.5-1.5 4-4 4s-4-1.5-4-4V7a4 4 0 014-4z"/><path d="M7 13c-1.5 1-2.5 2.5-2.5 4.5h15c0-2-1-3.5-2.5-4.5"/></svg> },
+              { name: 'Hot Shave',  price: '$40', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="10" height="10"><path d="M12 2c0 6-4 8-4 12a4 4 0 008 0c0-4-4-6-4-12z"/></svg> },
+            ].map(({ name, price, svg }) => (
+              <div key={name} style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '4px 7px', background: 'rgba(168,85,247,0.07)', border: '1px solid rgba(168,85,247,0.18)', borderRadius: 4 }}>
+                <div style={{ width: 16, height: 16, background: 'rgba(168,85,247,0.2)', border: '1px solid rgba(168,85,247,0.3)', borderRadius: 3, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{svg}</div>
+                <span style={{ fontSize: 5.5, color: 'rgba(255,255,255,0.65)', fontWeight: 600, flex: 1 }}>{name}</span>
+                <span style={{ fontSize: 6, fontWeight: 800, color: '#a855f7' }}>{price}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Time slots */}
+        <div style={{ padding: '6px 12px 10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 3, marginBottom: 4 }}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="2.5" strokeLinecap="round" width="8" height="8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            <span style={{ fontSize: 4.5, fontWeight: 700, color: 'rgba(255,255,255,0.28)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Available Today</span>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 3 }}>
+            {['9 AM', '10 AM', '12 PM', '1 PM', '3 PM', '5 PM'].map((time, i) => (
+              <div key={time} style={{ background: i === 2 ? '#a855f7' : 'rgba(168,85,247,0.1)', border: `1px solid ${i === 2 ? '#a855f7' : 'rgba(168,85,247,0.25)'}`, borderRadius: 3, padding: '2.5px 0', textAlign: 'center', fontSize: 4.5, color: i === 2 ? '#fff' : 'rgba(255,255,255,0.6)', fontWeight: 600 }}>{time}</div>
             ))}
           </div>
         </div>
@@ -769,7 +862,10 @@ const projects = [
       <div style={{ background: '#0a0810', fontFamily: 'inherit', color: '#fff' }}>
         {/* Nav */}
         <div style={{ background: '#0d0a14', borderBottom: '1px solid rgba(168,85,247,0.15)', padding: '10px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ fontSize: 11, fontWeight: 900, color: '#a855f7', letterSpacing: '0.1em' }}>PRECISION BARBERS</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <svg viewBox="0 0 28 28" width="28" height="28"><circle cx="14" cy="14" r="13" fill="#a855f7"/><circle cx="9" cy="10" r="3" fill="none" stroke="white" strokeWidth="1.5"/><circle cx="9" cy="18" r="3" fill="none" stroke="white" strokeWidth="1.5"/><line x1="11.5" y1="12.5" x2="21" y2="21" stroke="white" strokeWidth="1.5" strokeLinecap="round"/><line x1="11.5" y1="15.5" x2="21" y2="7" stroke="white" strokeWidth="1.5" strokeLinecap="round"/></svg>
+            <span style={{ fontSize: 11, fontWeight: 900, color: '#a855f7', letterSpacing: '0.1em' }}>PRECISION BARBERS</span>
+          </div>
           <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
             {['Services', 'Booking', 'Gallery', 'Contact'].map(item => (
               <span key={item} style={{ fontSize: 9, color: 'rgba(255,255,255,0.55)', fontWeight: 500 }}>{item}</span>
