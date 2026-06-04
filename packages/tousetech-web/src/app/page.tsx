@@ -119,18 +119,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── TRUST BAR ──────────────────────────────── */}
-        <div className={styles.trustBar}>
-          <div className={styles.trustInner}>
-            {trustItems.map((item, i) => (
-              <div key={i} className={styles.trustItem}>
-                <span className={styles.trustCheck}>✓</span>
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* ── SERVICES ───────────────────────────────── */}
         <section id="services" className={styles.section}>
           <div className={styles.container}>
@@ -489,8 +477,6 @@ export default function Home() {
 }
 
 /* ── DATA ────────────────────────────────────────── */
-
-const trustItems = ['Mobile Responsive', 'Fast Turnaround', 'Modern Design', 'Ongoing Support', 'Built for Growth'];
 
 const services = [
   { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="3" width="18" height="14" rx="2"/><path strokeLinecap="round" d="M8 21h8M12 17v4"/></svg>, title: 'Website Design', desc: 'Modern, responsive websites tailored to your business and optimized for all devices.' },
