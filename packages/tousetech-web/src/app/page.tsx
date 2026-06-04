@@ -7,6 +7,7 @@ import styles from './page.module.css';
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [openProject, setOpenProject] = useState<number | null>(null);
   const [consultForm, setConsultForm] = useState({ name: '', business: '', email: '', phone: '', message: '' });
   const [consultStatus, setConsultStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
@@ -18,6 +19,11 @@ export default function Home() {
     document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = openProject !== null ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [openProject]);
 
   function handleConsultChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setConsultForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -293,9 +299,9 @@ export default function Home() {
                     <span className={styles.workTag} style={{ color: p.accent, borderColor: `${p.accent}44`, background: `${p.accent}12` }}>{p.tag}</span>
                     <h3 className={styles.workTitle}>{p.title}</h3>
                     <p className={styles.workDesc}>{p.desc}</p>
-                    <a href="#consultation" className={styles.viewProjectBtn} style={{ color: p.accent, borderColor: `${p.accent}44` }}>
+                    <button onClick={() => setOpenProject(i)} className={styles.viewProjectBtn} style={{ color: p.accent, borderColor: `${p.accent}44`, background: 'transparent', fontFamily: 'inherit', cursor: 'pointer' }}>
                       View Project →
-                    </a>
+                    </button>
                   </div>
                 </div>
               ))}
@@ -348,24 +354,6 @@ export default function Home() {
                   <Link href="/contact" className={plan.popular ? styles.btnPrimary : styles.btnSecondary}>Get Started</Link>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── WEBSITE AUDIT OFFER ─────────────────────── */}
-        <section className={`${styles.section} ${styles.auditSection}`}>
-          <div className={styles.container}>
-            <div className={styles.auditInner} data-animate>
-              <div className={styles.auditIcon}>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="28" height="28">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                </svg>
-              </div>
-              <div className={styles.auditText}>
-                <h2 className={styles.auditTitle}>Free Website Review</h2>
-                <p className={styles.auditSub}>Already have a website? We'll review your current site and identify opportunities to improve performance, design, and user experience.</p>
-              </div>
-              <a href="#consultation" className={styles.btnPrimary}>Request a Free Review</a>
             </div>
           </div>
         </section>
@@ -471,6 +459,31 @@ export default function Home() {
       <a href="#consultation" className={styles.stickyBtn}>
         Get a Quote
       </a>
+
+      {/* ── PROJECT MODAL ──────────────────────────── */}
+      {openProject !== null && (
+        <div className={styles.projectModalOverlay} onClick={() => setOpenProject(null)}>
+          <div className={styles.projectModalCard} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.projectModalClose} onClick={() => setOpenProject(null)} aria-label="Close">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="16" height="16">
+                <line x1="18" y1="6" x2="6" y2="18" strokeLinecap="round" />
+                <line x1="6" y1="6" x2="18" y2="18" strokeLinecap="round" />
+              </svg>
+            </button>
+            <div className={styles.projectModalBrowser}>
+              <div className={styles.projectModalBar}>
+                <span className={styles.dot} style={{ background: '#ff5f57' }} />
+                <span className={styles.dot} style={{ background: '#febc2e' }} />
+                <span className={styles.dot} style={{ background: '#28c840' }} />
+                <div className={styles.projectModalUrl}>{projects[openProject].url}</div>
+              </div>
+              <div className={styles.projectModalScreen}>
+                {projects[openProject].modal}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
@@ -517,6 +530,7 @@ const projects = [
     desc: 'Modern gym website focused on memberships and lead generation.',
     bg: '#080c08',
     accent: '#22c55e',
+    url: 'apexfitness.com',
     mockup: (
       <div style={{ padding: '10px 12px 12px', display: 'flex', flexDirection: 'column', gap: 6 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -543,6 +557,66 @@ const projects = [
         </div>
       </div>
     ),
+    modal: (
+      <div style={{ background: '#08100a', fontFamily: 'inherit', color: '#fff' }}>
+        <div style={{ background: '#0a140c', borderBottom: '1px solid rgba(34,197,94,0.15)', padding: '10px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <span style={{ fontSize: 11, fontWeight: 900, color: '#22c55e', letterSpacing: '0.12em' }}>APEX FITNESS</span>
+          <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+            {['Home', 'Classes', 'Membership', 'Contact'].map(item => (
+              <span key={item} style={{ fontSize: 9, color: 'rgba(255,255,255,0.55)', fontWeight: 500 }}>{item}</span>
+            ))}
+            <div style={{ background: '#22c55e', borderRadius: 4, padding: '4px 11px', fontSize: 9, fontWeight: 700 }}>Join Now</div>
+          </div>
+        </div>
+        <div style={{ background: 'linear-gradient(135deg, rgba(34,197,94,0.11), rgba(34,197,94,0.02))', borderBottom: '1px solid rgba(34,197,94,0.1)', padding: '28px 24px' }}>
+          <div style={{ fontSize: 9, fontWeight: 700, color: '#22c55e', letterSpacing: '0.16em', marginBottom: 8 }}>MICHIGAN'S #1 GYM</div>
+          <div style={{ fontSize: 22, fontWeight: 900, lineHeight: 1.15, marginBottom: 10, letterSpacing: '-0.02em' }}>Transform Your Body.<br />Elevate Your Life.</div>
+          <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.48)', maxWidth: 360, lineHeight: 1.65, marginBottom: 16 }}>State-of-the-art equipment, expert trainers, and a community built to push you further every single day.</div>
+          <div style={{ display: 'flex', gap: 8, marginBottom: 18 }}>
+            <div style={{ background: '#22c55e', borderRadius: 5, padding: '7px 16px', fontSize: 9, fontWeight: 700 }}>Get Started →</div>
+            <div style={{ border: '1px solid rgba(255,255,255,0.18)', borderRadius: 5, padding: '7px 16px', fontSize: 9, fontWeight: 600, color: 'rgba(255,255,255,0.65)' }}>View Classes</div>
+          </div>
+          <div style={{ display: 'flex', gap: 24 }}>
+            {[['500+', 'Active Members'], ['20+', 'Classes/Week'], ['★ 5.0', 'Google Rating']].map(([val, label]) => (
+              <div key={label}>
+                <div style={{ fontSize: 14, fontWeight: 800, color: '#22c55e' }}>{val}</div>
+                <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.38)' }}>{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div style={{ padding: '20px 24px' }}>
+          <div style={{ fontSize: 8, fontWeight: 700, color: '#22c55e', letterSpacing: '0.16em', marginBottom: 6 }}>OUR CLASSES</div>
+          <div style={{ fontSize: 14, fontWeight: 800, marginBottom: 14 }}>Train Hard. Get Results.</div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 8 }}>
+            {[
+              { name: 'Strength', desc: 'Heavy lifting & compound movements', sessions: '5x weekly' },
+              { name: 'Cardio', desc: 'Endurance and heart-rate training', sessions: 'Daily' },
+              { name: 'HIIT', desc: 'High-intensity interval training', sessions: '4x weekly' },
+              { name: 'Yoga', desc: 'Flexibility and recovery focused', sessions: '3x weekly' },
+            ].map(c => (
+              <div key={c.name} style={{ background: 'rgba(34,197,94,0.07)', border: '1px solid rgba(34,197,94,0.17)', borderRadius: 6, padding: '10px' }}>
+                <div style={{ width: 22, height: 22, background: 'rgba(34,197,94,0.22)', borderRadius: 5, marginBottom: 7 }} />
+                <div style={{ fontSize: 10, fontWeight: 700, marginBottom: 3 }}>{c.name}</div>
+                <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.42)', lineHeight: 1.5, marginBottom: 5 }}>{c.desc}</div>
+                <div style={{ fontSize: 7, color: '#22c55e', fontWeight: 700 }}>{c.sessions}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div style={{ background: 'rgba(34,197,94,0.07)', borderTop: '1px solid rgba(34,197,94,0.12)', borderBottom: '1px solid rgba(34,197,94,0.12)', padding: '14px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <div style={{ fontSize: 12, fontWeight: 800, marginBottom: 3 }}>Ready to Start Your Journey?</div>
+            <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.4)' }}>First class free. No commitment required.</div>
+          </div>
+          <div style={{ background: '#22c55e', borderRadius: 5, padding: '8px 18px', fontSize: 9, fontWeight: 700, whiteSpace: 'nowrap' }}>Claim Free Class</div>
+        </div>
+        <div style={{ padding: '12px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <span style={{ fontSize: 8, fontWeight: 800, color: '#22c55e' }}>APEX FITNESS</span>
+          <span style={{ fontSize: 7, color: 'rgba(255,255,255,0.2)' }}>© 2026 Apex Fitness. All rights reserved.</span>
+        </div>
+      </div>
+    ),
   },
   {
     title: 'Harbor Grill',
@@ -550,6 +624,7 @@ const projects = [
     desc: 'Restaurant website featuring menu, reservations, and mobile optimization.',
     bg: '#0c0a08',
     accent: '#f97316',
+    url: 'harborgrill.com',
     mockup: (
       <div style={{ padding: '10px 12px 12px', display: 'flex', flexDirection: 'column', gap: 6 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -577,6 +652,60 @@ const projects = [
         </div>
       </div>
     ),
+    modal: (
+      <div style={{ background: '#0d0a07', fontFamily: 'inherit', color: '#fff' }}>
+        <div style={{ background: '#120d08', borderBottom: '1px solid rgba(249,115,22,0.15)', padding: '10px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <span style={{ fontSize: 11, fontWeight: 900, color: '#f97316', letterSpacing: '0.08em' }}>HARBOR GRILL</span>
+          <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+            {['Menu', 'About', 'Reservations', 'Contact'].map(item => (
+              <span key={item} style={{ fontSize: 9, color: 'rgba(255,255,255,0.55)', fontWeight: 500 }}>{item}</span>
+            ))}
+            <div style={{ background: '#f97316', borderRadius: 4, padding: '4px 11px', fontSize: 9, fontWeight: 700 }}>Reserve Table</div>
+          </div>
+        </div>
+        <div style={{ background: 'linear-gradient(135deg, rgba(249,115,22,0.11), rgba(249,115,22,0.02))', borderBottom: '1px solid rgba(249,115,22,0.1)', padding: '28px 24px' }}>
+          <div style={{ fontSize: 9, fontWeight: 700, color: '#f97316', letterSpacing: '0.16em', marginBottom: 8 }}>WATERFRONT DINING</div>
+          <div style={{ fontSize: 22, fontWeight: 900, lineHeight: 1.15, marginBottom: 10, letterSpacing: '-0.02em' }}>Fresh From The Sea.<br />Straight To Your Plate.</div>
+          <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.48)', maxWidth: 360, lineHeight: 1.65, marginBottom: 16 }}>Locally sourced seafood in a warm waterfront atmosphere. Open daily for lunch and dinner — reservations recommended.</div>
+          <div style={{ display: 'flex', gap: 8 }}>
+            <div style={{ background: '#f97316', borderRadius: 5, padding: '7px 16px', fontSize: 9, fontWeight: 700 }}>View Menu →</div>
+            <div style={{ border: '1px solid rgba(255,255,255,0.18)', borderRadius: 5, padding: '7px 16px', fontSize: 9, fontWeight: 600, color: 'rgba(255,255,255,0.65)' }}>Reserve a Table</div>
+          </div>
+        </div>
+        <div style={{ padding: '20px 24px' }}>
+          <div style={{ fontSize: 8, fontWeight: 700, color: '#f97316', letterSpacing: '0.16em', marginBottom: 6 }}>MENU HIGHLIGHTS</div>
+          <div style={{ fontSize: 14, fontWeight: 800, marginBottom: 14 }}>Chef's Selections</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            {[
+              { name: 'Grilled Atlantic Salmon', desc: 'Lemon butter, roasted vegetables, garlic mash', price: '$24' },
+              { name: 'Harbor Fish & Chips', desc: 'Beer-battered cod, hand-cut fries, tartar sauce', price: '$18' },
+              { name: 'New England Clam Chowder', desc: 'Thick, creamy, made fresh daily with local clams', price: '$12' },
+              { name: 'Lobster Roll', desc: 'Cold Maine lobster, toasted brioche, drawn butter', price: '$32' },
+            ].map(item => (
+              <div key={item.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 6 }}>
+                <div>
+                  <div style={{ fontSize: 10, fontWeight: 700, marginBottom: 2 }}>{item.name}</div>
+                  <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.38)', lineHeight: 1.4 }}>{item.desc}</div>
+                </div>
+                <div style={{ fontSize: 13, fontWeight: 800, color: '#f97316', marginLeft: 16, flexShrink: 0 }}>{item.price}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div style={{ background: 'rgba(249,115,22,0.07)', borderTop: '1px solid rgba(249,115,22,0.12)', borderBottom: '1px solid rgba(249,115,22,0.12)', padding: '12px 24px', display: 'flex', gap: 28 }}>
+          {[['Hours', 'Mon – Sun  11am – 10pm'], ['Location', 'Waterfront District, Harbor Bay'], ['Reservations', '(555) 000-0000']].map(([label, val]) => (
+            <div key={label}>
+              <div style={{ fontSize: 7, color: '#f97316', fontWeight: 700, marginBottom: 2 }}>{label}</div>
+              <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>{val}</div>
+            </div>
+          ))}
+        </div>
+        <div style={{ padding: '12px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <span style={{ fontSize: 8, fontWeight: 800, color: '#f97316' }}>HARBOR GRILL</span>
+          <span style={{ fontSize: 7, color: 'rgba(255,255,255,0.2)' }}>© 2026 Harbor Grill. All rights reserved.</span>
+        </div>
+      </div>
+    ),
   },
   {
     title: 'Precision Barbers',
@@ -584,6 +713,7 @@ const projects = [
     desc: 'Modern booking website designed to streamline appointments.',
     bg: '#0a080f',
     accent: '#a855f7',
+    url: 'precisionbarbers.com',
     mockup: (
       <div style={{ padding: '10px 12px 12px', display: 'flex', flexDirection: 'column', gap: 6 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -602,6 +732,56 @@ const projects = [
               <div key={time} style={{ background: 'rgba(168,85,247,0.1)', border: '1px solid rgba(168,85,247,0.28)', borderRadius: 3, padding: '3px 0', textAlign: 'center', fontSize: 5, color: 'rgba(255,255,255,0.65)', fontWeight: 600 }}>{time}</div>
             ))}
           </div>
+        </div>
+      </div>
+    ),
+    modal: (
+      <div style={{ background: '#0a0810', fontFamily: 'inherit', color: '#fff' }}>
+        <div style={{ background: '#0d0a14', borderBottom: '1px solid rgba(168,85,247,0.15)', padding: '10px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <span style={{ fontSize: 11, fontWeight: 900, color: '#a855f7', letterSpacing: '0.1em' }}>PRECISION BARBERS</span>
+          <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+            {['Services', 'Booking', 'Gallery', 'Contact'].map(item => (
+              <span key={item} style={{ fontSize: 9, color: 'rgba(255,255,255,0.55)', fontWeight: 500 }}>{item}</span>
+            ))}
+            <div style={{ background: '#a855f7', borderRadius: 4, padding: '4px 11px', fontSize: 9, fontWeight: 700 }}>Book Now</div>
+          </div>
+        </div>
+        <div style={{ background: 'linear-gradient(135deg, rgba(168,85,247,0.11), rgba(168,85,247,0.02))', borderBottom: '1px solid rgba(168,85,247,0.1)', padding: '28px 24px' }}>
+          <div style={{ fontSize: 9, fontWeight: 700, color: '#a855f7', letterSpacing: '0.16em', marginBottom: 8 }}>EXPERT BARBERS</div>
+          <div style={{ fontSize: 22, fontWeight: 900, lineHeight: 1.15, marginBottom: 10, letterSpacing: '-0.02em' }}>Your Perfect Cut.<br />Every Time.</div>
+          <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.48)', maxWidth: 360, lineHeight: 1.65, marginBottom: 16 }}>Modern techniques, classic craftsmanship. Walk in feeling good — leave looking great. Book your appointment in seconds.</div>
+          <div style={{ background: '#a855f7', borderRadius: 5, padding: '7px 16px', fontSize: 9, fontWeight: 700, display: 'inline-block' }}>Book an Appointment →</div>
+        </div>
+        <div style={{ padding: '20px 24px' }}>
+          <div style={{ fontSize: 8, fontWeight: 700, color: '#a855f7', letterSpacing: '0.16em', marginBottom: 6 }}>OUR SERVICES</div>
+          <div style={{ fontSize: 14, fontWeight: 800, marginBottom: 14 }}>Built for the Modern Gentleman</div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 8 }}>
+            {[
+              { name: 'Classic Haircut', price: '$30', desc: 'Scissor & clipper cut, styled to perfection' },
+              { name: 'Skin Fade', price: '$35', desc: 'Seamless taper, all lengths available' },
+              { name: 'Beard Trim', price: '$20', desc: 'Shape, lineup, hot towel finish' },
+              { name: 'Hot Shave', price: '$40', desc: 'Straight razor with hot towel treatment' },
+            ].map(s => (
+              <div key={s.name} style={{ background: 'rgba(168,85,247,0.07)', border: '1px solid rgba(168,85,247,0.17)', borderRadius: 6, padding: '10px' }}>
+                <div style={{ fontSize: 13, fontWeight: 800, color: '#a855f7', marginBottom: 3 }}>{s.price}</div>
+                <div style={{ fontSize: 9, fontWeight: 700, marginBottom: 4 }}>{s.name}</div>
+                <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.4)', lineHeight: 1.5 }}>{s.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div style={{ padding: '0 24px 20px' }}>
+          <div style={{ fontSize: 8, fontWeight: 700, color: '#a855f7', letterSpacing: '0.16em', marginBottom: 6 }}>BOOK ONLINE</div>
+          <div style={{ fontSize: 12, fontWeight: 800, marginBottom: 10 }}>Available This Week</div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 4 }}>
+            {['9:00 AM', '10:30 AM', '12:00 PM', '1:30 PM', '3:00 PM', '4:30 PM', '5:00 PM', '6:00 PM', '6:30 PM', '7:00 PM'].map((time, i) => (
+              <div key={time} style={{ background: i === 2 ? '#a855f7' : 'rgba(168,85,247,0.1)', border: `1px solid ${i === 2 ? '#a855f7' : 'rgba(168,85,247,0.25)'}`, borderRadius: 4, padding: '5px 0', textAlign: 'center', fontSize: 7, color: i === 2 ? '#fff' : 'rgba(255,255,255,0.6)', fontWeight: 600 }}>{time}</div>
+            ))}
+          </div>
+        </div>
+        <div style={{ padding: '12px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+          <span style={{ fontSize: 8, fontWeight: 800, color: '#a855f7' }}>PRECISION BARBERS</span>
+          <span style={{ fontSize: 7, color: 'rgba(255,255,255,0.2)' }}>© 2026 Precision Barbers. All rights reserved.</span>
         </div>
       </div>
     ),
