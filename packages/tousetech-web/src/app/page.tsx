@@ -302,7 +302,6 @@ export default function Home() {
                 <p className={styles.aboutText}>
                   Our goal is simple: create websites that look professional, build trust, and help businesses grow.
                 </p>
-                <Link href="/contact" className={styles.btnPrimary} style={{ marginTop: '1rem', display: 'inline-flex' }}>Work With Us</Link>
               </div>
               <div className={styles.aboutRight}>
                 {aboutStats.map((stat, i) => (
