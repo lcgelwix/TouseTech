@@ -431,7 +431,7 @@ const pricing = [
 ];
 
 const faqs = [
-  { q: 'How long does a website take?', a: 'Most websites are completed within 1–3 weeks depending on the complexity of the project.' },
+  { q: 'How long does a website take?', a: 'Most websites are turned around quickly — often within a few hours to a couple of days depending on the scope. We move fast without cutting corners.' },
   { q: 'Do you provide hosting?', a: 'Yes, we can help with hosting and domain setup to get your website live and running.' },
   { q: 'Can you redesign my current website?', a: 'Absolutely. We can redesign and modernize your existing website to match your current brand and goals.' },
   { q: 'Do you offer ongoing support?', a: 'Yes. We offer maintenance and support plans to keep your website updated and running smoothly.' },
