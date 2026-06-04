@@ -7,19 +7,36 @@ import styles from './page.module.css';
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [consultForm, setConsultForm] = useState({ name: '', business: '', email: '', phone: '', message: '' });
+  const [consultStatus, setConsultStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('in-view');
-        });
-      },
+      (entries) => { entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('in-view'); }); },
       { threshold: 0.1 }
     );
     document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
+
+  function handleConsultChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    setConsultForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  async function handleConsultSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setConsultStatus('sending');
+    try {
+      const res = await fetch('/api/consultation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(consultForm),
+      });
+      setConsultStatus(res.ok ? 'success' : 'error');
+    } catch {
+      setConsultStatus('error');
+    }
+  }
 
   return (
     <>
@@ -95,6 +112,18 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* ── TRUST BAR ──────────────────────────────── */}
+        <div className={styles.trustBar}>
+          <div className={styles.trustInner}>
+            {trustItems.map((item, i) => (
+              <div key={i} className={styles.trustItem}>
+                <span className={styles.trustCheck}>✓</span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* ── SERVICES ───────────────────────────────── */}
         <section id="services" className={styles.section}>
@@ -183,6 +212,66 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── FREE CONSULTATION ───────────────────────── */}
+        <section id="consultation" className={`${styles.section} ${styles.consultSection}`}>
+          <div className={styles.container}>
+            <div className={styles.consultInner} data-animate>
+              <div className={styles.consultLeft}>
+                <p className={styles.eyebrow}>Free — No Obligation</p>
+                <h2 className={styles.consultTitle}>Get a Free Website Consultation</h2>
+                <p className={styles.consultSub}>Tell us about your business and we'll discuss the best solution for your goals.</p>
+                <div className={styles.consultPerks}>
+                  {['No pressure, no commitment', 'Response within 24 hours', 'Personalized recommendations'].map((p, i) => (
+                    <div key={i} className={styles.consultPerk}>
+                      <span className={styles.perkCheck}>✓</span>{p}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className={styles.consultRight}>
+                {consultStatus === 'success' ? (
+                  <div className={styles.consultSuccess}>
+                    <div className={styles.successIcon}>✓</div>
+                    <h3>Request Received!</h3>
+                    <p>We'll be in touch within 24 hours to discuss your project.</p>
+                  </div>
+                ) : (
+                  <form className={styles.consultForm} onSubmit={handleConsultSubmit}>
+                    <div className={styles.formRow}>
+                      <div className={styles.formField}>
+                        <label htmlFor="cname">Your Name *</label>
+                        <input id="cname" name="name" type="text" placeholder="John Smith" required value={consultForm.name} onChange={handleConsultChange} />
+                      </div>
+                      <div className={styles.formField}>
+                        <label htmlFor="cbusiness">Business Name</label>
+                        <input id="cbusiness" name="business" type="text" placeholder="Your Business" value={consultForm.business} onChange={handleConsultChange} />
+                      </div>
+                    </div>
+                    <div className={styles.formRow}>
+                      <div className={styles.formField}>
+                        <label htmlFor="cemail">Email Address *</label>
+                        <input id="cemail" name="email" type="email" placeholder="you@email.com" required value={consultForm.email} onChange={handleConsultChange} />
+                      </div>
+                      <div className={styles.formField}>
+                        <label htmlFor="cphone">Phone Number</label>
+                        <input id="cphone" name="phone" type="tel" placeholder="(000) 000-0000" value={consultForm.phone} onChange={handleConsultChange} />
+                      </div>
+                    </div>
+                    <div className={styles.formField}>
+                      <label htmlFor="cmessage">Tell Us About Your Business</label>
+                      <textarea id="cmessage" name="message" rows={4} placeholder="What does your business do? What are your website goals?" value={consultForm.message} onChange={handleConsultChange} />
+                    </div>
+                    {consultStatus === 'error' && <p className={styles.formError}>Something went wrong. Please try again.</p>}
+                    <button type="submit" className={styles.consultBtn} disabled={consultStatus === 'sending'}>
+                      {consultStatus === 'sending' ? 'Sending...' : 'Request My Free Consultation →'}
+                    </button>
+                  </form>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ── RECENT PROJECTS ────────────────────────── */}
         <section id="work" className={styles.section}>
           <div className={styles.container}>
@@ -217,7 +306,29 @@ export default function Home() {
                     <span className={styles.workTag} style={{ color: p.accent, borderColor: `${p.accent}44`, background: `${p.accent}12` }}>{p.tag}</span>
                     <h3 className={styles.workTitle}>{p.title}</h3>
                     <p className={styles.workDesc}>{p.desc}</p>
+                    <a href="#consultation" className={styles.viewProjectBtn} style={{ color: p.accent, borderColor: `${p.accent}44` }}>
+                      View Project →
+                    </a>
                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── WHO WE HELP ────────────────────────────── */}
+        <section className={`${styles.section} ${styles.industriesSection}`}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader} data-animate>
+              <p className={styles.eyebrow}>Industries We Serve</p>
+              <h2 className={styles.sectionTitle}>Who We Help</h2>
+              <p className={styles.sectionSub}>Helping businesses establish a stronger online presence through modern web solutions.</p>
+            </div>
+            <div className={styles.industriesGrid}>
+              {industries.map((ind, i) => (
+                <div key={i} className={styles.industryCard} data-animate style={{ transitionDelay: `${i * 0.07}s` }}>
+                  <div className={styles.industryIcon}>{ind.icon}</div>
+                  <h3 className={styles.industryTitle}>{ind.title}</h3>
                 </div>
               ))}
             </div>
@@ -234,12 +345,7 @@ export default function Home() {
             </div>
             <div className={styles.pricingGrid}>
               {pricing.map((plan, i) => (
-                <div
-                  key={i}
-                  className={`${styles.pricingCard} ${plan.popular ? styles.popularCard : ''}`}
-                  data-animate
-                  style={{ transitionDelay: `${i * 0.1}s` }}
-                >
+                <div key={i} className={`${styles.pricingCard} ${plan.popular ? styles.popularCard : ''}`} data-animate style={{ transitionDelay: `${i * 0.1}s` }}>
                   {plan.popular && <div className={styles.popularBadge}>Most Popular</div>}
                   <div className={styles.pricingTop}>
                     <h3 className={styles.pricingName}>{plan.name}</h3>
@@ -248,16 +354,31 @@ export default function Home() {
                   <ul className={styles.pricingList}>
                     {plan.features.map((f, j) => (
                       <li key={j} className={styles.pricingItem}>
-                        <span className={styles.pricingCheck}>✓</span>
-                        {f}
+                        <span className={styles.pricingCheck}>✓</span>{f}
                       </li>
                     ))}
                   </ul>
-                  <Link href="/contact" className={plan.popular ? styles.btnPrimary : styles.btnSecondary}>
-                    Get Started
-                  </Link>
+                  <Link href="/contact" className={plan.popular ? styles.btnPrimary : styles.btnSecondary}>Get Started</Link>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── WEBSITE AUDIT OFFER ─────────────────────── */}
+        <section className={`${styles.section} ${styles.auditSection}`}>
+          <div className={styles.container}>
+            <div className={styles.auditInner} data-animate>
+              <div className={styles.auditIcon}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="28" height="28">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                </svg>
+              </div>
+              <div className={styles.auditText}>
+                <h2 className={styles.auditTitle}>Free Website Review</h2>
+                <p className={styles.auditSub}>Already have a website? We'll review your current site and identify opportunities to improve performance, design, and user experience.</p>
+              </div>
+              <a href="#consultation" className={styles.btnPrimary}>Request a Free Review</a>
             </div>
           </div>
         </section>
@@ -296,12 +417,8 @@ export default function Home() {
               <div className={styles.aboutLeft}>
                 <p className={styles.eyebrow}>Who We Are</p>
                 <h2 className={styles.sectionTitle} style={{ textAlign: 'left', margin: '0 0 1.5rem' }}>About TouseTech</h2>
-                <p className={styles.aboutText}>
-                  TouseTech helps businesses establish a stronger online presence through modern websites, clean design, and digital growth solutions.
-                </p>
-                <p className={styles.aboutText}>
-                  Our goal is simple: create websites that look professional, build trust, and help businesses grow.
-                </p>
+                <p className={styles.aboutText}>TouseTech helps businesses establish a stronger online presence through modern websites, clean design, and digital growth solutions.</p>
+                <p className={styles.aboutText}>Our goal is simple: create websites that look professional, build trust, and help businesses grow.</p>
               </div>
               <div className={styles.aboutRight}>
                 {aboutStats.map((stat, i) => (
@@ -338,27 +455,23 @@ export default function Home() {
             <div className={styles.footerLeft}>
               <span className={styles.footerBrand}>TouseTech</span>
               <p className={styles.footerTagline}>Modern Websites. Real Results.</p>
-              <p className={styles.footerCopy}>© {new Date().getFullYear()} TouseTech. All rights reserved.</p>
+              <p className={styles.footerCopy}>© 2026 TouseTech. All Rights Reserved.</p>
             </div>
             <div className={styles.footerRight}>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="18" height="18">
-                  <rect x="2" y="2" width="20" height="20" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" stroke="none" />
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" stroke="none"/></svg>
                 Instagram
               </a>
               <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                  <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 105.56 6.29V9.14a8.17 8.17 0 004.77 1.51V7.22a4.85 4.85 0 01-1-.53z" />
-                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 105.56 6.29V9.14a8.17 8.17 0 004.77 1.51V7.22a4.85 4.85 0 01-1-.53z"/></svg>
                 TikTok
               </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                LinkedIn
+              </a>
               <a href="mailto:lcgelwix@gmail.com" className={styles.socialLink}>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="18" height="18">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="18" height="18"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                 Email
               </a>
             </div>
@@ -366,11 +479,18 @@ export default function Home() {
         </footer>
 
       </main>
+
+      {/* ── STICKY CTA ─────────────────────────────── */}
+      <a href="#consultation" className={styles.stickyBtn}>
+        Get a Quote
+      </a>
     </>
   );
 }
 
 /* ── DATA ────────────────────────────────────────── */
+
+const trustItems = ['Mobile Responsive', 'Fast Turnaround', 'Modern Design', 'Ongoing Support', 'Built for Growth'];
 
 const services = [
   { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="3" width="18" height="14" rx="2"/><path strokeLinecap="round" d="M8 21h8M12 17v4"/></svg>, title: 'Website Design', desc: 'Modern, responsive websites tailored to your business and optimized for all devices.' },
@@ -404,30 +524,24 @@ const features = [
 ];
 
 const projects = [
-  { title: 'Bella Vista Restaurant', tag: 'Restaurant', desc: 'Modern restaurant website with online menu, reservations, and photo gallery.', bg: '#0c0a08', accent: '#f97316' },
-  { title: 'Iron Edge Gym', tag: 'Fitness', desc: 'High-energy gym landing page with membership plans and class schedules.', bg: '#080c08', accent: '#22c55e' },
-  { title: 'Sharp Cuts Barber', tag: 'Booking', desc: 'Clean booking site with service menu, gallery, and online appointments.', bg: '#0a080f', accent: '#a855f7' },
+  { title: 'Apex Fitness', tag: 'Fitness', desc: 'Modern gym website focused on memberships and lead generation.', bg: '#080c08', accent: '#22c55e' },
+  { title: 'Harbor Grill', tag: 'Restaurant', desc: 'Restaurant website featuring menu, reservations, and mobile optimization.', bg: '#0c0a08', accent: '#f97316' },
+  { title: 'Precision Barbers', tag: 'Booking', desc: 'Modern booking website designed to streamline appointments.', bg: '#0a080f', accent: '#a855f7' },
+];
+
+const industries = [
+  { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="26" height="26"><path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/><circle cx="12" cy="12" r="9"/></svg>, title: 'Gyms & Fitness' },
+  { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="26" height="26"><path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>, title: 'Restaurants' },
+  { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="26" height="26"><path strokeLinecap="round" strokeLinejoin="round" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"/></svg>, title: 'Barbershops' },
+  { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="26" height="26"><path strokeLinecap="round" strokeLinejoin="round" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/></svg>, title: 'Contractors' },
+  { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="26" height="26"><path strokeLinecap="round" strokeLinejoin="round" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22" strokeLinecap="round" strokeLinejoin="round"/></svg>, title: 'Real Estate' },
+  { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="26" height="26"><path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>, title: 'Small Businesses' },
 ];
 
 const pricing = [
-  {
-    name: 'Starter',
-    tagline: 'Perfect for small businesses.',
-    popular: false,
-    features: ['Custom Website', 'Mobile Responsive Design', 'Contact Form', 'Basic SEO Setup'],
-  },
-  {
-    name: 'Growth',
-    tagline: 'For businesses ready to grow.',
-    popular: true,
-    features: ['Everything in Starter', 'Additional Pages', 'Google Business Profile Setup', 'Performance Optimization'],
-  },
-  {
-    name: 'Premium',
-    tagline: 'The complete business solution.',
-    popular: false,
-    features: ['Everything in Growth', 'Content Creation Setup', 'Advanced Optimization', 'Priority Support'],
-  },
+  { name: 'Starter', tagline: 'Perfect for small businesses.', popular: false, features: ['Custom Website', 'Mobile Responsive Design', 'Contact Form', 'Basic SEO Setup'] },
+  { name: 'Growth', tagline: 'For businesses ready to grow.', popular: true, features: ['Everything in Starter', 'Additional Pages', 'Google Business Profile Setup', 'Performance Optimization'] },
+  { name: 'Premium', tagline: 'The complete business solution.', popular: false, features: ['Everything in Growth', 'Content Creation Setup', 'Advanced Optimization', 'Priority Support'] },
 ];
 
 const faqs = [
