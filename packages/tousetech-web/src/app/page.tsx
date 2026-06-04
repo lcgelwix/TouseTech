@@ -388,7 +388,7 @@ export default function Home() {
         </section>
 
         {/* ── PRICING ────────────────────────────────── */}
-        <section className={`${styles.section} ${styles.pricingSection}`}>
+        <section id="packages" className={`${styles.section} ${styles.pricingSection}`}>
           <div className={styles.container}>
             <div className={styles.sectionHeader} data-animate>
               <p className={styles.eyebrow}>Simple & Transparent</p>
@@ -477,8 +477,8 @@ export default function Home() {
             <h2 className={styles.ctaTitle}>Ready To Grow Your<br />Business Online?</h2>
             <p className={styles.ctaSub}>Let's build a modern website that works for your business.</p>
             <div className={styles.ctaBtns}>
-              <Link href="/contact" className={styles.btnPrimary}>Contact Us</Link>
-              <Link href="/contact" className={styles.btnSecondary}>Get Started</Link>
+              <a href="#packages" className={styles.btnPrimary}>Get Started</a>
+              <Link href="/contact" className={styles.btnSecondary}>Contact Us</Link>
             </div>
           </div>
         </section>

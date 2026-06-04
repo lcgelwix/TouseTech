@@ -22,7 +22,7 @@ export default function Navbar() {
         <li><a href="/#contact" onClick={() => setOpen(false)}>Contact</a></li>
       </ul>
 
-      <Link href="/contact" className={styles.ctaBtn}>Get Started</Link>
+      <a href="/#packages" className={styles.ctaBtn}>Get Started</a>
 
       <button
         className={styles.hamburger}
