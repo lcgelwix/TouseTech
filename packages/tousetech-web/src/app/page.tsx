@@ -77,41 +77,51 @@ export default function Home() {
                     <div className={styles.addressBar} />
                   </div>
                   <div className={styles.laptopScreen}>
-                    {/* Nav */}
+                    {/* TouseTech Nav */}
                     <div className={styles.screenNav} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 14px' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-                        <div style={{ width: 16, height: 16, background: '#2563eb', borderRadius: 3 }} />
-                        <div style={{ width: 38, height: 5, background: 'rgba(255,255,255,0.45)', borderRadius: 2 }} />
+                        <svg viewBox="0 0 20 20" width="15" height="15">
+                          <circle cx="10" cy="10" r="8.5" fill="none" stroke="rgba(255,255,255,0.55)" strokeWidth="1"/>
+                          <rect x="3.5" y="5.5" width="5"   height="1.5" rx="0.3" fill="white"/>
+                          <rect x="5.5" y="7"   width="1.5" height="5.5" rx="0.3" fill="white"/>
+                          <rect x="9.5" y="5.5" width="5"   height="1.5" rx="0.3" fill="#2563eb"/>
+                          <rect x="13" y="7"    width="1.5" height="5.5" rx="0.3" fill="#2563eb"/>
+                        </svg>
+                        <span style={{ fontSize: 7, fontWeight: 800, letterSpacing: '0.03em' }}>
+                          <span style={{ color: '#fff' }}>Touse</span><span style={{ color: '#2563eb' }}>Tech</span>
+                        </span>
                       </div>
                       <div style={{ display: 'flex', gap: 10 }}>
-                        {[18, 22, 18, 20].map((w, i) => <div key={i} style={{ width: w, height: 4, background: 'rgba(255,255,255,0.1)', borderRadius: 2 }} />)}
+                        {['Services', 'Work', 'Contact'].map(l => (
+                          <span key={l} style={{ fontSize: 5.5, color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>{l}</span>
+                        ))}
                       </div>
-                      <div style={{ width: 48, height: 18, background: '#2563eb', borderRadius: 4 }} />
+                      <div style={{ background: '#2563eb', borderRadius: 3, padding: '2.5px 8px', fontSize: 5.5, fontWeight: 700, color: '#fff' }}>Get Started</div>
                     </div>
-                    {/* Hero area */}
+                    {/* TouseTech Hero */}
                     <div className={styles.screenHero}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 4, background: 'rgba(34,197,94,0.12)', border: '1px solid rgba(34,197,94,0.28)', borderRadius: 10, padding: '2px 8px', width: 'fit-content', marginBottom: 6 }}>
-                        <div style={{ width: 5, height: 5, background: '#22c55e', borderRadius: '50%' }} />
-                        <span style={{ fontSize: 7, fontWeight: 700, color: '#22c55e' }}>+147% Avg Conversion Lift</span>
+                      <div style={{ display: 'inline-flex', alignItems: 'center', gap: 3, background: 'rgba(37,99,235,0.12)', border: '1px solid rgba(37,99,235,0.3)', borderRadius: 10, padding: '2px 7px', marginBottom: 6, width: 'fit-content' }}>
+                        <span style={{ fontSize: 5.5, color: '#60a5fa', fontWeight: 700, letterSpacing: '0.08em' }}>✦ MODERN DIGITAL SOLUTIONS</span>
                       </div>
-                      <div style={{ width: '76%', height: 11, background: 'rgba(255,255,255,0.78)', borderRadius: 3, marginBottom: 5 }} />
-                      <div style={{ width: '54%', height: 7, background: 'rgba(255,255,255,0.32)', borderRadius: 3, marginBottom: 3 }} />
-                      <div style={{ width: '64%', height: 5, background: 'rgba(255,255,255,0.16)', borderRadius: 3, marginBottom: 10 }} />
-                      <div style={{ display: 'flex', gap: 6 }}>
-                        <div style={{ width: 64, height: 20, background: '#2563eb', borderRadius: 5 }} />
-                        <div style={{ width: 52, height: 20, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.14)', borderRadius: 5 }} />
+                      <div style={{ fontSize: 11, fontWeight: 900, color: '#fff', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: 1 }}>Modern Websites.</div>
+                      <div style={{ fontSize: 11, fontWeight: 900, color: '#2563eb', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: 6 }}>Real Results.</div>
+                      <div style={{ fontSize: 6.5, color: 'rgba(255,255,255,0.42)', lineHeight: 1.6, marginBottom: 8, maxWidth: '78%' }}>We build modern, high-performing websites that help businesses grow online and stand out.</div>
+                      <div style={{ display: 'flex', gap: 5 }}>
+                        <div style={{ background: '#2563eb', borderRadius: 4, padding: '4px 11px', fontSize: 6, fontWeight: 700, color: '#fff' }}>Get Started</div>
+                        <div style={{ border: '1px solid rgba(255,255,255,0.18)', borderRadius: 4, padding: '4px 10px', fontSize: 6, fontWeight: 600, color: 'rgba(255,255,255,0.5)' }}>View Our Work</div>
                       </div>
                     </div>
-                    {/* Stat cards — match the floating badges */}
+                    {/* Service cards */}
                     <div className={styles.screenCards}>
                       {[
-                        { val: '+147%', label: 'Conversions', color: '#22c55e' },
-                        { val: '98/100', label: 'Perf. Score',  color: '#2563eb' },
-                        { val: '3x',    label: 'More Traffic', color: '#a855f7' },
+                        { label: 'Website Design', sub: 'Custom & Modern', icon: <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" strokeWidth="2" width="10" height="10"><rect x="2" y="3" width="20" height="14" rx="2"/><path strokeLinecap="round" d="M8 21h8M12 17v4"/></svg> },
+                        { label: 'Development',    sub: 'Fast & Secure',   icon: <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" strokeWidth="2" width="10" height="10"><polyline points="16 18 22 12 16 6" strokeLinecap="round" strokeLinejoin="round"/><polyline points="8 6 2 12 8 18" strokeLinecap="round" strokeLinejoin="round"/></svg> },
+                        { label: 'Optimization',   sub: '98/100 Score',    icon: <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" strokeWidth="2" width="10" height="10"><path strokeLinecap="round" strokeLinejoin="round" d="M13 2L4 14h8l-1 8 9-12h-8l1-8z"/></svg> },
                       ].map((s, i) => (
-                        <div key={i} className={styles.screenCard} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 3 }}>
-                          <div style={{ fontSize: 10, fontWeight: 900, color: s.color, letterSpacing: '-0.02em' }}>{s.val}</div>
-                          <div style={{ fontSize: 5.5, color: 'rgba(255,255,255,0.38)', fontWeight: 600 }}>{s.label}</div>
+                        <div key={i} className={styles.screenCard} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 3, padding: '0 4px' }}>
+                          <div style={{ width: 18, height: 18, background: 'rgba(37,99,235,0.15)', border: '1px solid rgba(37,99,235,0.2)', borderRadius: 4, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{s.icon}</div>
+                          <div style={{ fontSize: 5.5, fontWeight: 700, color: 'rgba(255,255,255,0.7)', textAlign: 'center', lineHeight: 1.3 }}>{s.label}</div>
+                          <div style={{ fontSize: 5, color: '#2563eb', fontWeight: 700 }}>{s.sub}</div>
                         </div>
                       ))}
                     </div>
@@ -120,31 +130,45 @@ export default function Home() {
                 <div className={styles.phone}>
                   <div className={styles.phoneNotch} />
                   <div className={styles.phoneContent}>
-                    {/* Phone nav */}
+                    {/* TouseTech mobile nav */}
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 5 }}>
-                      <div style={{ width: 13, height: 13, background: '#2563eb', borderRadius: 2 }} />
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                        {[1,2,3].map(i => <div key={i} style={{ width: 14, height: 1.5, background: 'rgba(255,255,255,0.4)', borderRadius: 1 }} />)}
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 3 }}>
+                        <svg viewBox="0 0 20 20" width="12" height="12">
+                          <circle cx="10" cy="10" r="8.5" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1"/>
+                          <rect x="3.5" y="5.5" width="5"   height="1.5" rx="0.3" fill="white"/>
+                          <rect x="5.5" y="7"   width="1.5" height="5.5" rx="0.3" fill="white"/>
+                          <rect x="9.5" y="5.5" width="5"   height="1.5" rx="0.3" fill="#2563eb"/>
+                          <rect x="13"  y="7"   width="1.5" height="5.5" rx="0.3" fill="#2563eb"/>
+                        </svg>
+                        <span style={{ fontSize: 5.5, fontWeight: 800 }}>
+                          <span style={{ color: '#fff' }}>Touse</span><span style={{ color: '#2563eb' }}>Tech</span>
+                        </span>
+                      </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+                        {[1,2,3].map(i => <div key={i} style={{ width: 13, height: 1.5, background: 'rgba(255,255,255,0.4)', borderRadius: 1 }} />)}
                       </div>
                     </div>
-                    {/* Phone hero */}
-                    <div style={{ background: 'linear-gradient(135deg, rgba(37,99,235,0.2), rgba(37,99,235,0.04))', borderRadius: 4, padding: '6px 6px 5px', marginBottom: 5 }}>
-                      <div style={{ width: '88%', height: 6, background: 'rgba(255,255,255,0.65)', borderRadius: 2, marginBottom: 3 }} />
-                      <div style={{ width: '62%', height: 4, background: 'rgba(255,255,255,0.25)', borderRadius: 2, marginBottom: 5 }} />
-                      <div style={{ width: '60%', height: 14, background: '#2563eb', borderRadius: 3 }} />
+                    {/* Mobile hero */}
+                    <div style={{ background: 'linear-gradient(135deg, rgba(37,99,235,0.16), rgba(37,99,235,0.03))', borderRadius: 4, padding: '6px', marginBottom: 4 }}>
+                      <div style={{ fontSize: 5, color: '#60a5fa', fontWeight: 700, letterSpacing: '0.08em', marginBottom: 3 }}>✦ DIGITAL SOLUTIONS</div>
+                      <div style={{ fontSize: 8.5, fontWeight: 900, color: '#fff', lineHeight: 1.2, marginBottom: 1 }}>Modern Websites.</div>
+                      <div style={{ fontSize: 8.5, fontWeight: 900, color: '#2563eb', lineHeight: 1.2, marginBottom: 4 }}>Real Results.</div>
+                      <div style={{ fontSize: 5.5, color: 'rgba(255,255,255,0.4)', lineHeight: 1.5, marginBottom: 5 }}>High-performing websites that help businesses grow.</div>
+                      <div style={{ background: '#2563eb', borderRadius: 3, padding: '3.5px 0', fontSize: 5.5, fontWeight: 700, color: '#fff', textAlign: 'center' }}>Get Started →</div>
                     </div>
-                    {/* Speed score badge — matches floating card */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 4, background: 'rgba(37,99,235,0.1)', border: '1px solid rgba(37,99,235,0.25)', borderRadius: 4, padding: '3px 5px', marginBottom: 4 }}>
-                      <div style={{ width: 18, height: 18, background: 'rgba(37,99,235,0.3)', borderRadius: 3, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                        <span style={{ fontSize: 6.5, fontWeight: 900, color: '#60a5fa', lineHeight: 1 }}>98</span>
-                      </div>
-                      <div>
-                        <div style={{ fontSize: 5.5, fontWeight: 700, color: 'rgba(255,255,255,0.7)', lineHeight: 1.3 }}>Speed Score</div>
-                        <div style={{ fontSize: 4.5, color: 'rgba(255,255,255,0.32)', lineHeight: 1.2 }}>Mobile optimized</div>
-                      </div>
+                    {/* Service pills */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+                      {[
+                        { label: 'Website Design', color: '#2563eb' },
+                        { label: 'Development',    color: '#2563eb' },
+                        { label: 'Optimization',   color: '#2563eb' },
+                      ].map(({ label, color }) => (
+                        <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '3px 5px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 3 }}>
+                          <div style={{ width: 5, height: 5, background: color, borderRadius: '50%', flexShrink: 0 }} />
+                          <span style={{ fontSize: 5.5, color: 'rgba(255,255,255,0.55)', fontWeight: 600 }}>{label}</span>
+                        </div>
+                      ))}
                     </div>
-                    <div className={styles.phoneLine} />
-                    <div className={styles.phoneLine} style={{ width: '55%' }} />
                   </div>
                 </div>
                 <div className={`${styles.floatCard} ${styles.floatCard1}`}>
