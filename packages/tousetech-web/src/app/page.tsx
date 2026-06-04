@@ -534,9 +534,13 @@ const projects = [
           </div>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 4 }}>
-          {['Strength', 'Cardio', 'HIIT'].map((label) => (
+          {[
+            { label: 'Strength', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" width="11" height="11"><path d="M7 8v8M17 8v8M4 10v4M20 10v4M7 12h10"/></svg> },
+            { label: 'Cardio',   svg: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="11" height="11"><path d="M3 12h3l2-6 4 12 3-8 2 2h4"/></svg> },
+            { label: 'HIIT',    svg: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="11" height="11"><path d="M13 2L4 14h8l-1 8 9-12h-8l1-8z"/></svg> },
+          ].map(({ label, svg }) => (
             <div key={label} style={{ background: 'rgba(34,197,94,0.07)', border: '1px solid rgba(34,197,94,0.2)', borderRadius: 4, padding: '6px 4px', display: 'flex', flexDirection: 'column', gap: 3, alignItems: 'center' }}>
-              <div style={{ width: 14, height: 14, background: 'rgba(34,197,94,0.25)', borderRadius: 3 }} />
+              {svg}
               <span style={{ fontSize: 5, color: 'rgba(255,255,255,0.6)', fontWeight: 700 }}>{label}</span>
             </div>
           ))}
@@ -545,6 +549,7 @@ const projects = [
     ),
     modal: (
       <div style={{ background: '#08100a', fontFamily: 'inherit', color: '#fff' }}>
+        {/* Nav */}
         <div style={{ background: '#0a140c', borderBottom: '1px solid rgba(34,197,94,0.15)', padding: '10px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <span style={{ fontSize: 11, fontWeight: 900, color: '#22c55e', letterSpacing: '0.12em' }}>APEX FITNESS</span>
           <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
@@ -554,35 +559,47 @@ const projects = [
             <div style={{ background: '#22c55e', borderRadius: 4, padding: '4px 11px', fontSize: 9, fontWeight: 700 }}>Join Now</div>
           </div>
         </div>
-        <div style={{ background: 'linear-gradient(135deg, rgba(34,197,94,0.11), rgba(34,197,94,0.02))', borderBottom: '1px solid rgba(34,197,94,0.1)', padding: '28px 24px' }}>
-          <div style={{ fontSize: 9, fontWeight: 700, color: '#22c55e', letterSpacing: '0.16em', marginBottom: 8 }}>MICHIGAN'S #1 GYM</div>
-          <div style={{ fontSize: 22, fontWeight: 900, lineHeight: 1.15, marginBottom: 10, letterSpacing: '-0.02em' }}>Transform Your Body.<br />Elevate Your Life.</div>
-          <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.48)', maxWidth: 360, lineHeight: 1.65, marginBottom: 16 }}>State-of-the-art equipment, expert trainers, and a community built to push you further every single day.</div>
-          <div style={{ display: 'flex', gap: 8, marginBottom: 18 }}>
-            <div style={{ background: '#22c55e', borderRadius: 5, padding: '7px 16px', fontSize: 9, fontWeight: 700 }}>Get Started →</div>
-            <div style={{ border: '1px solid rgba(255,255,255,0.18)', borderRadius: 5, padding: '7px 16px', fontSize: 9, fontWeight: 600, color: 'rgba(255,255,255,0.65)' }}>View Classes</div>
+        {/* Hero */}
+        <div style={{ background: 'linear-gradient(135deg, rgba(34,197,94,0.11), rgba(34,197,94,0.02))', borderBottom: '1px solid rgba(34,197,94,0.1)', padding: '28px 24px', display: 'flex', alignItems: 'center', gap: 16 }}>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontSize: 9, fontWeight: 700, color: '#22c55e', letterSpacing: '0.16em', marginBottom: 8 }}>MICHIGAN'S #1 GYM</div>
+            <div style={{ fontSize: 22, fontWeight: 900, lineHeight: 1.15, marginBottom: 10, letterSpacing: '-0.02em' }}>Transform Your Body.<br />Elevate Your Life.</div>
+            <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.48)', lineHeight: 1.65, marginBottom: 16 }}>State-of-the-art equipment, expert trainers, and a community built to push you further every single day.</div>
+            <div style={{ display: 'flex', gap: 8, marginBottom: 18 }}>
+              <div style={{ background: '#22c55e', borderRadius: 5, padding: '7px 16px', fontSize: 9, fontWeight: 700 }}>Get Started →</div>
+              <div style={{ border: '1px solid rgba(255,255,255,0.18)', borderRadius: 5, padding: '7px 16px', fontSize: 9, fontWeight: 600, color: 'rgba(255,255,255,0.65)' }}>View Classes</div>
+            </div>
+            <div style={{ display: 'flex', gap: 24 }}>
+              {[['500+', 'Active Members'], ['20+', 'Classes/Week'], ['★ 5.0', 'Google Rating']].map(([val, label]) => (
+                <div key={label}>
+                  <div style={{ fontSize: 14, fontWeight: 800, color: '#22c55e' }}>{val}</div>
+                  <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.38)' }}>{label}</div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div style={{ display: 'flex', gap: 24 }}>
-            {[['500+', 'Active Members'], ['20+', 'Classes/Week'], ['★ 5.0', 'Google Rating']].map(([val, label]) => (
-              <div key={label}>
-                <div style={{ fontSize: 14, fontWeight: 800, color: '#22c55e' }}>{val}</div>
-                <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.38)' }}>{label}</div>
-              </div>
-            ))}
-          </div>
+          {/* Decorative dumbbell */}
+          <svg viewBox="0 0 80 80" fill="none" stroke="#22c55e" strokeWidth="4" strokeLinecap="round" width="90" height="90" style={{ opacity: 0.18, flexShrink: 0 }}>
+            <rect x="8"  y="28" width="10" height="24" rx="3"/>
+            <rect x="62" y="28" width="10" height="24" rx="3"/>
+            <rect x="18" y="22" width="8"  height="36" rx="2"/>
+            <rect x="54" y="22" width="8"  height="36" rx="2"/>
+            <line x1="26" y1="40" x2="54" y2="40"/>
+          </svg>
         </div>
+        {/* Classes */}
         <div style={{ padding: '20px 24px' }}>
           <div style={{ fontSize: 8, fontWeight: 700, color: '#22c55e', letterSpacing: '0.16em', marginBottom: 6 }}>OUR CLASSES</div>
           <div style={{ fontSize: 14, fontWeight: 800, marginBottom: 14 }}>Train Hard. Get Results.</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 8 }}>
             {[
-              { name: 'Strength', desc: 'Heavy lifting & compound movements', sessions: '5x weekly' },
-              { name: 'Cardio', desc: 'Endurance and heart-rate training', sessions: 'Daily' },
-              { name: 'HIIT', desc: 'High-intensity interval training', sessions: '4x weekly' },
-              { name: 'Yoga', desc: 'Flexibility and recovery focused', sessions: '3x weekly' },
+              { name: 'Strength', sessions: '5x weekly', desc: 'Heavy lifting & compound movements', icon: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" width="20" height="20"><path d="M7 8v8M17 8v8M4 10v4M20 10v4M7 12h10"/></svg> },
+              { name: 'Cardio',   sessions: 'Daily',     desc: 'Endurance and heart-rate training',    icon: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20"><path d="M3 12h3l2-6 4 12 3-8 2 2h4"/></svg> },
+              { name: 'HIIT',     sessions: '4x weekly', desc: 'High-intensity interval training',     icon: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="20" height="20"><path d="M13 2L4 14h8l-1 8 9-12h-8l1-8z"/></svg> },
+              { name: 'Yoga',     sessions: '3x weekly', desc: 'Flexibility and recovery focused',     icon: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" width="20" height="20"><path d="M12 3c0 0-4 4-4 8s4 8 4 8 4-4 4-8-4-8-4-8z"/><path d="M4 12h16"/></svg> },
             ].map(c => (
               <div key={c.name} style={{ background: 'rgba(34,197,94,0.07)', border: '1px solid rgba(34,197,94,0.17)', borderRadius: 6, padding: '10px' }}>
-                <div style={{ width: 22, height: 22, background: 'rgba(34,197,94,0.22)', borderRadius: 5, marginBottom: 7 }} />
+                <div style={{ marginBottom: 7 }}>{c.icon}</div>
                 <div style={{ fontSize: 10, fontWeight: 700, marginBottom: 3 }}>{c.name}</div>
                 <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.42)', lineHeight: 1.5, marginBottom: 5 }}>{c.desc}</div>
                 <div style={{ fontSize: 7, color: '#22c55e', fontWeight: 700 }}>{c.sessions}</div>
@@ -590,6 +607,7 @@ const projects = [
             ))}
           </div>
         </div>
+        {/* CTA banner */}
         <div style={{ background: 'rgba(34,197,94,0.07)', borderTop: '1px solid rgba(34,197,94,0.12)', borderBottom: '1px solid rgba(34,197,94,0.12)', padding: '14px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <div style={{ fontSize: 12, fontWeight: 800, marginBottom: 3 }}>Ready to Start Your Journey?</div>
@@ -597,6 +615,7 @@ const projects = [
           </div>
           <div style={{ background: '#22c55e', borderRadius: 5, padding: '8px 18px', fontSize: 9, fontWeight: 700, whiteSpace: 'nowrap' }}>Claim Free Class</div>
         </div>
+        {/* Footer */}
         <div style={{ padding: '12px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <span style={{ fontSize: 8, fontWeight: 800, color: '#22c55e' }}>APEX FITNESS</span>
           <span style={{ fontSize: 7, color: 'rgba(255,255,255,0.2)' }}>© 2026 Apex Fitness. All rights reserved.</span>
@@ -626,13 +645,20 @@ const projects = [
           </div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-          {[['Grilled Salmon', '$24'], ['Fish & Chips', '$18'], ['Clam Chowder', '$12']].map(([name, price]) => (
-            <div key={name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '4px 7px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 4 }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <div style={{ width: 58, height: 5, background: 'rgba(255,255,255,0.55)', borderRadius: 2 }} />
-                <div style={{ width: 38, height: 3, background: 'rgba(255,255,255,0.18)', borderRadius: 2 }} />
+          {[
+            { name: 'Grilled Salmon', price: '$24', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="9" height="9"><path d="M2 12s5-7 10-7 8 4 8 7-3 7-8 7S2 12 2 12z"/><circle cx="16" cy="10" r="1" fill="#f97316" stroke="none"/></svg> },
+            { name: 'Fish & Chips',  price: '$18', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" width="9" height="9"><path d="M8 3v3a3 3 0 006 0V3"/><line x1="11" y1="6" x2="11" y2="20"/><line x1="18" y1="4" x2="18" y2="20"/></svg> },
+            { name: 'Clam Chowder', price: '$12', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" width="9" height="9"><path d="M5 9h14l-1 9a2 2 0 01-2 2H8a2 2 0 01-2-2L5 9z"/><path d="M3 9h18"/><path d="M10 5a2 2 0 014 0v4"/></svg> },
+          ].map(({ name, price, svg }) => (
+            <div key={name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '4px 7px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 4, gap: 4 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 4, flex: 1 }}>
+                {svg}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                  <div style={{ width: 50, height: 5, background: 'rgba(255,255,255,0.55)', borderRadius: 2 }} />
+                  <div style={{ width: 32, height: 3, background: 'rgba(255,255,255,0.18)', borderRadius: 2 }} />
+                </div>
               </div>
-              <span style={{ fontSize: 6, fontWeight: 800, color: '#f97316' }}>{price}</span>
+              <span style={{ fontSize: 6, fontWeight: 800, color: '#f97316', flexShrink: 0 }}>{price}</span>
             </div>
           ))}
         </div>
@@ -640,6 +666,7 @@ const projects = [
     ),
     modal: (
       <div style={{ background: '#0d0a07', fontFamily: 'inherit', color: '#fff' }}>
+        {/* Nav */}
         <div style={{ background: '#120d08', borderBottom: '1px solid rgba(249,115,22,0.15)', padding: '10px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <span style={{ fontSize: 11, fontWeight: 900, color: '#f97316', letterSpacing: '0.08em' }}>HARBOR GRILL</span>
           <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
@@ -649,35 +676,48 @@ const projects = [
             <div style={{ background: '#f97316', borderRadius: 4, padding: '4px 11px', fontSize: 9, fontWeight: 700 }}>Reserve Table</div>
           </div>
         </div>
-        <div style={{ background: 'linear-gradient(135deg, rgba(249,115,22,0.11), rgba(249,115,22,0.02))', borderBottom: '1px solid rgba(249,115,22,0.1)', padding: '28px 24px' }}>
-          <div style={{ fontSize: 9, fontWeight: 700, color: '#f97316', letterSpacing: '0.16em', marginBottom: 8 }}>WATERFRONT DINING</div>
-          <div style={{ fontSize: 22, fontWeight: 900, lineHeight: 1.15, marginBottom: 10, letterSpacing: '-0.02em' }}>Fresh From The Sea.<br />Straight To Your Plate.</div>
-          <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.48)', maxWidth: 360, lineHeight: 1.65, marginBottom: 16 }}>Locally sourced seafood in a warm waterfront atmosphere. Open daily for lunch and dinner — reservations recommended.</div>
-          <div style={{ display: 'flex', gap: 8 }}>
-            <div style={{ background: '#f97316', borderRadius: 5, padding: '7px 16px', fontSize: 9, fontWeight: 700 }}>View Menu →</div>
-            <div style={{ border: '1px solid rgba(255,255,255,0.18)', borderRadius: 5, padding: '7px 16px', fontSize: 9, fontWeight: 600, color: 'rgba(255,255,255,0.65)' }}>Reserve a Table</div>
+        {/* Hero */}
+        <div style={{ background: 'linear-gradient(135deg, rgba(249,115,22,0.11), rgba(249,115,22,0.02))', borderBottom: '1px solid rgba(249,115,22,0.1)', padding: '28px 24px', display: 'flex', alignItems: 'center', gap: 16 }}>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontSize: 9, fontWeight: 700, color: '#f97316', letterSpacing: '0.16em', marginBottom: 8 }}>WATERFRONT DINING</div>
+            <div style={{ fontSize: 22, fontWeight: 900, lineHeight: 1.15, marginBottom: 10, letterSpacing: '-0.02em' }}>Fresh From The Sea.<br />Straight To Your Plate.</div>
+            <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.48)', lineHeight: 1.65, marginBottom: 16 }}>Locally sourced seafood in a warm waterfront atmosphere. Open daily for lunch and dinner — reservations recommended.</div>
+            <div style={{ display: 'flex', gap: 8 }}>
+              <div style={{ background: '#f97316', borderRadius: 5, padding: '7px 16px', fontSize: 9, fontWeight: 700 }}>View Menu →</div>
+              <div style={{ border: '1px solid rgba(255,255,255,0.18)', borderRadius: 5, padding: '7px 16px', fontSize: 9, fontWeight: 600, color: 'rgba(255,255,255,0.65)' }}>Reserve a Table</div>
+            </div>
           </div>
+          {/* Decorative fork & fish */}
+          <svg viewBox="0 0 80 80" fill="none" stroke="#f97316" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" width="90" height="90" style={{ opacity: 0.18, flexShrink: 0 }}>
+            <path d="M20 10v20M14 10v10a6 6 0 0012 0V10M20 30v40"/>
+            <path d="M50 20c0 0 10-12 22-10-2 12-10 18-22 10z"/>
+            <path d="M50 20l16-16"/>
+            <circle cx="62" cy="16" r="2" fill="#f97316"/>
+          </svg>
         </div>
+        {/* Menu */}
         <div style={{ padding: '20px 24px' }}>
           <div style={{ fontSize: 8, fontWeight: 700, color: '#f97316', letterSpacing: '0.16em', marginBottom: 6 }}>MENU HIGHLIGHTS</div>
           <div style={{ fontSize: 14, fontWeight: 800, marginBottom: 14 }}>Chef's Selections</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
             {[
-              { name: 'Grilled Atlantic Salmon', desc: 'Lemon butter, roasted vegetables, garlic mash', price: '$24' },
-              { name: 'Harbor Fish & Chips', desc: 'Beer-battered cod, hand-cut fries, tartar sauce', price: '$18' },
-              { name: 'New England Clam Chowder', desc: 'Thick, creamy, made fresh daily with local clams', price: '$12' },
-              { name: 'Lobster Roll', desc: 'Cold Maine lobster, toasted brioche, drawn butter', price: '$32' },
+              { name: 'Grilled Atlantic Salmon', desc: 'Lemon butter, roasted vegetables, garlic mash', price: '$24', icon: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><path d="M2 12s5-7 10-7 8 4 8 7-3 7-8 7S2 12 2 12z"/><circle cx="16" cy="10" r="1.2" fill="#f97316" stroke="none"/></svg> },
+              { name: 'Harbor Fish & Chips',    desc: 'Beer-battered cod, hand-cut fries, tartar sauce', price: '$18', icon: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="1.8" strokeLinecap="round" width="22" height="22"><path d="M8 3v3a3 3 0 006 0V3"/><line x1="11" y1="6" x2="11" y2="20"/><line x1="18" y1="4" x2="18" y2="20"/></svg> },
+              { name: 'New England Clam Chowder', desc: 'Thick, creamy, made fresh daily with local clams', price: '$12', icon: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="1.8" strokeLinecap="round" width="22" height="22"><path d="M5 9h14l-1 9a2 2 0 01-2 2H8a2 2 0 01-2-2L5 9z"/><path d="M3 9h18"/><path d="M10 5a2 2 0 014 0v4"/></svg> },
+              { name: 'Lobster Roll',            desc: 'Cold Maine lobster, toasted brioche, drawn butter', price: '$32', icon: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="22" height="22"><path d="M12 3c3 0 6 2 7 5H5c1-3 4-5 7-5z"/><path d="M5 8h14v2a7 7 0 01-14 0V8z"/><path d="M9 16v4M15 16v4M7 20h10"/></svg> },
             ].map(item => (
-              <div key={item.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 6 }}>
-                <div>
+              <div key={item.name} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '8px 12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 6 }}>
+                <div style={{ width: 34, height: 34, background: 'rgba(249,115,22,0.1)', border: '1px solid rgba(249,115,22,0.2)', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{item.icon}</div>
+                <div style={{ flex: 1 }}>
                   <div style={{ fontSize: 10, fontWeight: 700, marginBottom: 2 }}>{item.name}</div>
                   <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.38)', lineHeight: 1.4 }}>{item.desc}</div>
                 </div>
-                <div style={{ fontSize: 13, fontWeight: 800, color: '#f97316', marginLeft: 16, flexShrink: 0 }}>{item.price}</div>
+                <div style={{ fontSize: 14, fontWeight: 800, color: '#f97316', flexShrink: 0 }}>{item.price}</div>
               </div>
             ))}
           </div>
         </div>
+        {/* Info bar */}
         <div style={{ background: 'rgba(249,115,22,0.07)', borderTop: '1px solid rgba(249,115,22,0.12)', borderBottom: '1px solid rgba(249,115,22,0.12)', padding: '12px 24px', display: 'flex', gap: 28 }}>
           {[['Hours', 'Mon – Sun  11am – 10pm'], ['Location', 'Waterfront District, Harbor Bay'], ['Reservations', '(555) 000-0000']].map(([label, val]) => (
             <div key={label}>
@@ -686,6 +726,7 @@ const projects = [
             </div>
           ))}
         </div>
+        {/* Footer */}
         <div style={{ padding: '12px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <span style={{ fontSize: 8, fontWeight: 800, color: '#f97316' }}>HARBOR GRILL</span>
           <span style={{ fontSize: 7, color: 'rgba(255,255,255,0.2)' }}>© 2026 Harbor Grill. All rights reserved.</span>
@@ -712,10 +753,13 @@ const projects = [
           <div style={{ width: 48, height: 15, background: '#a855f7', borderRadius: 3, marginTop: 2 }} />
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-          <span style={{ fontSize: 5, fontWeight: 700, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Available Today</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 3 }}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="2.5" strokeLinecap="round" width="8" height="8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            <span style={{ fontSize: 5, fontWeight: 700, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Available Today</span>
+          </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 3 }}>
-            {['9:00 AM', '11:30 AM', '1:00 PM', '2:30 PM', '4:00 PM', '5:30 PM'].map((time) => (
-              <div key={time} style={{ background: 'rgba(168,85,247,0.1)', border: '1px solid rgba(168,85,247,0.28)', borderRadius: 3, padding: '3px 0', textAlign: 'center', fontSize: 5, color: 'rgba(255,255,255,0.65)', fontWeight: 600 }}>{time}</div>
+            {['9:00 AM', '11:30 AM', '1:00 PM', '2:30 PM', '4:00 PM', '5:30 PM'].map((time, i) => (
+              <div key={time} style={{ background: i === 1 ? '#a855f7' : 'rgba(168,85,247,0.1)', border: `1px solid ${i === 1 ? '#a855f7' : 'rgba(168,85,247,0.28)'}`, borderRadius: 3, padding: '3px 0', textAlign: 'center', fontSize: 5, color: i === 1 ? '#fff' : 'rgba(255,255,255,0.65)', fontWeight: 600 }}>{time}</div>
             ))}
           </div>
         </div>
@@ -723,6 +767,7 @@ const projects = [
     ),
     modal: (
       <div style={{ background: '#0a0810', fontFamily: 'inherit', color: '#fff' }}>
+        {/* Nav */}
         <div style={{ background: '#0d0a14', borderBottom: '1px solid rgba(168,85,247,0.15)', padding: '10px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <span style={{ fontSize: 11, fontWeight: 900, color: '#a855f7', letterSpacing: '0.1em' }}>PRECISION BARBERS</span>
           <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
@@ -732,23 +777,35 @@ const projects = [
             <div style={{ background: '#a855f7', borderRadius: 4, padding: '4px 11px', fontSize: 9, fontWeight: 700 }}>Book Now</div>
           </div>
         </div>
-        <div style={{ background: 'linear-gradient(135deg, rgba(168,85,247,0.11), rgba(168,85,247,0.02))', borderBottom: '1px solid rgba(168,85,247,0.1)', padding: '28px 24px' }}>
-          <div style={{ fontSize: 9, fontWeight: 700, color: '#a855f7', letterSpacing: '0.16em', marginBottom: 8 }}>EXPERT BARBERS</div>
-          <div style={{ fontSize: 22, fontWeight: 900, lineHeight: 1.15, marginBottom: 10, letterSpacing: '-0.02em' }}>Your Perfect Cut.<br />Every Time.</div>
-          <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.48)', maxWidth: 360, lineHeight: 1.65, marginBottom: 16 }}>Modern techniques, classic craftsmanship. Walk in feeling good — leave looking great. Book your appointment in seconds.</div>
-          <div style={{ background: '#a855f7', borderRadius: 5, padding: '7px 16px', fontSize: 9, fontWeight: 700, display: 'inline-block' }}>Book an Appointment →</div>
+        {/* Hero */}
+        <div style={{ background: 'linear-gradient(135deg, rgba(168,85,247,0.11), rgba(168,85,247,0.02))', borderBottom: '1px solid rgba(168,85,247,0.1)', padding: '28px 24px', display: 'flex', alignItems: 'center', gap: 16 }}>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontSize: 9, fontWeight: 700, color: '#a855f7', letterSpacing: '0.16em', marginBottom: 8 }}>EXPERT BARBERS</div>
+            <div style={{ fontSize: 22, fontWeight: 900, lineHeight: 1.15, marginBottom: 10, letterSpacing: '-0.02em' }}>Your Perfect Cut.<br />Every Time.</div>
+            <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.48)', lineHeight: 1.65, marginBottom: 16 }}>Modern techniques, classic craftsmanship. Walk in feeling good — leave looking great. Book your appointment in seconds.</div>
+            <div style={{ background: '#a855f7', borderRadius: 5, padding: '7px 16px', fontSize: 9, fontWeight: 700, display: 'inline-block' }}>Book an Appointment →</div>
+          </div>
+          {/* Decorative scissors */}
+          <svg viewBox="0 0 80 80" fill="none" stroke="#a855f7" strokeWidth="3.5" strokeLinecap="round" width="90" height="90" style={{ opacity: 0.18, flexShrink: 0 }}>
+            <circle cx="18" cy="22" r="10"/>
+            <circle cx="18" cy="58" r="10"/>
+            <line x1="26" y1="28" x2="70" y2="70"/>
+            <line x1="26" y1="52" x2="70" y2="10"/>
+          </svg>
         </div>
+        {/* Services */}
         <div style={{ padding: '20px 24px' }}>
           <div style={{ fontSize: 8, fontWeight: 700, color: '#a855f7', letterSpacing: '0.16em', marginBottom: 6 }}>OUR SERVICES</div>
           <div style={{ fontSize: 14, fontWeight: 800, marginBottom: 14 }}>Built for the Modern Gentleman</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 8 }}>
             {[
-              { name: 'Classic Haircut', price: '$30', desc: 'Scissor & clipper cut, styled to perfection' },
-              { name: 'Skin Fade', price: '$35', desc: 'Seamless taper, all lengths available' },
-              { name: 'Beard Trim', price: '$20', desc: 'Shape, lineup, hot towel finish' },
-              { name: 'Hot Shave', price: '$40', desc: 'Straight razor with hot towel treatment' },
+              { name: 'Classic Haircut', price: '$30', desc: 'Scissor & clipper cut, styled to perfection', icon: <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="1.8" strokeLinecap="round" width="20" height="20"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="9" y1="9" x2="20" y2="20"/><line x1="9" y1="15" x2="20" y2="4"/></svg> },
+              { name: 'Skin Fade',       price: '$35', desc: 'Seamless taper, all lengths available',       icon: <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="20" height="20"><rect x="4" y="8" width="16" height="8" rx="2"/><path d="M8 8V6a2 2 0 014 0v2"/><line x1="4" y1="12" x2="20" y2="12"/></svg> },
+              { name: 'Beard Trim',     price: '$20', desc: 'Shape, lineup, hot towel finish',              icon: <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="20" height="20"><path d="M12 2a5 5 0 015 5v3c0 3-2 5-5 5s-5-2-5-5V7a5 5 0 015-5z"/><path d="M7 15c-2 1-3 3-3 5h16c0-2-1-4-3-5"/></svg> },
+              { name: 'Hot Shave',      price: '$40', desc: 'Straight razor with hot towel treatment',     icon: <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="20" height="20"><path d="M6 3l12 18M6 21L18 3"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg> },
             ].map(s => (
               <div key={s.name} style={{ background: 'rgba(168,85,247,0.07)', border: '1px solid rgba(168,85,247,0.17)', borderRadius: 6, padding: '10px' }}>
+                <div style={{ marginBottom: 8 }}>{s.icon}</div>
                 <div style={{ fontSize: 13, fontWeight: 800, color: '#a855f7', marginBottom: 3 }}>{s.price}</div>
                 <div style={{ fontSize: 9, fontWeight: 700, marginBottom: 4 }}>{s.name}</div>
                 <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.4)', lineHeight: 1.5 }}>{s.desc}</div>
@@ -756,8 +813,12 @@ const projects = [
             ))}
           </div>
         </div>
+        {/* Booking */}
         <div style={{ padding: '0 24px 20px' }}>
-          <div style={{ fontSize: 8, fontWeight: 700, color: '#a855f7', letterSpacing: '0.16em', marginBottom: 6 }}>BOOK ONLINE</div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 6 }}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" width="14" height="14"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            <span style={{ fontSize: 8, fontWeight: 700, color: '#a855f7', letterSpacing: '0.16em', textTransform: 'uppercase' }}>Book Online</span>
+          </div>
           <div style={{ fontSize: 12, fontWeight: 800, marginBottom: 10 }}>Available This Week</div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 4 }}>
             {['9:00 AM', '10:30 AM', '12:00 PM', '1:30 PM', '3:00 PM', '4:30 PM', '5:00 PM', '6:00 PM', '6:30 PM', '7:00 PM'].map((time, i) => (
@@ -765,6 +826,7 @@ const projects = [
             ))}
           </div>
         </div>
+        {/* Footer */}
         <div style={{ padding: '12px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
           <span style={{ fontSize: 8, fontWeight: 800, color: '#a855f7' }}>PRECISION BARBERS</span>
           <span style={{ fontSize: 7, color: 'rgba(255,255,255,0.2)' }}>© 2026 Precision Barbers. All rights reserved.</span>
