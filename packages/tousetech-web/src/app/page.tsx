@@ -287,20 +287,7 @@ export default function Home() {
                       <span className={styles.wDot} /><span className={styles.wDot} /><span className={styles.wDot} />
                       <div className={styles.workAddr} />
                     </div>
-                    <div className={styles.workScreen}>
-                      <div className={styles.workScreenNav} />
-                      <div className={styles.workScreenHero} style={{ background: `linear-gradient(135deg, ${p.accent}20, ${p.accent}06)`, borderBottom: `1px solid ${p.accent}28` }}>
-                        <div className={styles.workLine} style={{ width: '55%', height: 7 }} />
-                        <div className={styles.workLine} style={{ width: '38%', height: 5, opacity: 0.45 }} />
-                        <div className={styles.workLine} style={{ width: '65%', height: 5, opacity: 0.25 }} />
-                        <div className={styles.workCta} style={{ background: p.accent }} />
-                      </div>
-                      <div className={styles.workScreenGrid}>
-                        <div className={styles.workMiniCard} />
-                        <div className={styles.workMiniCard} />
-                        <div className={styles.workMiniCard} />
-                      </div>
-                    </div>
+                    {p.mockup}
                   </div>
                   <div className={styles.workInfo}>
                     <span className={styles.workTag} style={{ color: p.accent, borderColor: `${p.accent}44`, background: `${p.accent}12` }}>{p.tag}</span>
@@ -524,9 +511,101 @@ const features = [
 ];
 
 const projects = [
-  { title: 'Apex Fitness', tag: 'Fitness', desc: 'Modern gym website focused on memberships and lead generation.', bg: '#080c08', accent: '#22c55e' },
-  { title: 'Harbor Grill', tag: 'Restaurant', desc: 'Restaurant website featuring menu, reservations, and mobile optimization.', bg: '#0c0a08', accent: '#f97316' },
-  { title: 'Precision Barbers', tag: 'Booking', desc: 'Modern booking website designed to streamline appointments.', bg: '#0a080f', accent: '#a855f7' },
+  {
+    title: 'Apex Fitness',
+    tag: 'Fitness',
+    desc: 'Modern gym website focused on memberships and lead generation.',
+    bg: '#080c08',
+    accent: '#22c55e',
+    mockup: (
+      <div style={{ padding: '10px 12px 12px', display: 'flex', flexDirection: 'column', gap: 6 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <span style={{ fontSize: 6, fontWeight: 800, color: '#22c55e', letterSpacing: '0.1em' }}>APEX FITNESS</span>
+          <div style={{ display: 'flex', gap: 4 }}>
+            {[20, 22, 18].map((w, i) => <div key={i} style={{ width: w, height: 4, background: 'rgba(255,255,255,0.14)', borderRadius: 2 }} />)}
+          </div>
+        </div>
+        <div style={{ background: 'linear-gradient(135deg, rgba(34,197,94,0.12), rgba(34,197,94,0.03))', border: '1px solid rgba(34,197,94,0.18)', borderRadius: 5, padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <div style={{ width: '78%', height: 8, background: 'rgba(255,255,255,0.72)', borderRadius: 3 }} />
+          <div style={{ width: '55%', height: 5, background: 'rgba(255,255,255,0.28)', borderRadius: 3 }} />
+          <div style={{ display: 'flex', gap: 5, marginTop: 2 }}>
+            <div style={{ width: 46, height: 15, background: '#22c55e', borderRadius: 3 }} />
+            <div style={{ width: 36, height: 15, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.14)', borderRadius: 3 }} />
+          </div>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 4 }}>
+          {['Strength', 'Cardio', 'HIIT'].map((label) => (
+            <div key={label} style={{ background: 'rgba(34,197,94,0.07)', border: '1px solid rgba(34,197,94,0.2)', borderRadius: 4, padding: '6px 4px', display: 'flex', flexDirection: 'column', gap: 3, alignItems: 'center' }}>
+              <div style={{ width: 14, height: 14, background: 'rgba(34,197,94,0.25)', borderRadius: 3 }} />
+              <span style={{ fontSize: 5, color: 'rgba(255,255,255,0.6)', fontWeight: 700 }}>{label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: 'Harbor Grill',
+    tag: 'Restaurant',
+    desc: 'Restaurant website featuring menu, reservations, and mobile optimization.',
+    bg: '#0c0a08',
+    accent: '#f97316',
+    mockup: (
+      <div style={{ padding: '10px 12px 12px', display: 'flex', flexDirection: 'column', gap: 6 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <span style={{ fontSize: 6, fontWeight: 800, color: '#f97316', letterSpacing: '0.06em' }}>HARBOR GRILL</span>
+          <div style={{ width: 42, height: 14, background: '#f97316', borderRadius: 3 }} />
+        </div>
+        <div style={{ background: 'linear-gradient(135deg, rgba(249,115,22,0.12), rgba(249,115,22,0.03))', border: '1px solid rgba(249,115,22,0.18)', borderRadius: 5, padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <div style={{ width: '68%', height: 8, background: 'rgba(255,255,255,0.72)', borderRadius: 3 }} />
+          <div style={{ width: '46%', height: 5, background: 'rgba(255,255,255,0.28)', borderRadius: 3 }} />
+          <div style={{ display: 'flex', gap: 5, marginTop: 2 }}>
+            <div style={{ width: 52, height: 15, background: '#f97316', borderRadius: 3 }} />
+            <div style={{ width: 40, height: 15, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.14)', borderRadius: 3 }} />
+          </div>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+          {[['Grilled Salmon', '$24'], ['Fish & Chips', '$18'], ['Clam Chowder', '$12']].map(([name, price]) => (
+            <div key={name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '4px 7px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 4 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                <div style={{ width: 58, height: 5, background: 'rgba(255,255,255,0.55)', borderRadius: 2 }} />
+                <div style={{ width: 38, height: 3, background: 'rgba(255,255,255,0.18)', borderRadius: 2 }} />
+              </div>
+              <span style={{ fontSize: 6, fontWeight: 800, color: '#f97316' }}>{price}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: 'Precision Barbers',
+    tag: 'Booking',
+    desc: 'Modern booking website designed to streamline appointments.',
+    bg: '#0a080f',
+    accent: '#a855f7',
+    mockup: (
+      <div style={{ padding: '10px 12px 12px', display: 'flex', flexDirection: 'column', gap: 6 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <span style={{ fontSize: 6, fontWeight: 800, color: '#a855f7', letterSpacing: '0.08em' }}>PRECISION</span>
+          <div style={{ width: 38, height: 14, background: '#a855f7', borderRadius: 3 }} />
+        </div>
+        <div style={{ background: 'linear-gradient(135deg, rgba(168,85,247,0.12), rgba(168,85,247,0.03))', border: '1px solid rgba(168,85,247,0.18)', borderRadius: 5, padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <div style={{ width: '72%', height: 8, background: 'rgba(255,255,255,0.72)', borderRadius: 3 }} />
+          <div style={{ width: '52%', height: 5, background: 'rgba(255,255,255,0.28)', borderRadius: 3 }} />
+          <div style={{ width: 48, height: 15, background: '#a855f7', borderRadius: 3, marginTop: 2 }} />
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+          <span style={{ fontSize: 5, fontWeight: 700, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Available Today</span>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 3 }}>
+            {['9:00 AM', '11:30 AM', '1:00 PM', '2:30 PM', '4:00 PM', '5:30 PM'].map((time) => (
+              <div key={time} style={{ background: 'rgba(168,85,247,0.1)', border: '1px solid rgba(168,85,247,0.28)', borderRadius: 3, padding: '3px 0', textAlign: 'center', fontSize: 5, color: 'rgba(255,255,255,0.65)', fontWeight: 600 }}>{time}</div>
+            ))}
+          </div>
+        </div>
+      </div>
+    ),
+  },
 ];
 
 const industries = [
