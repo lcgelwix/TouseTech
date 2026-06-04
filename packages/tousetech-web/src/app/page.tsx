@@ -346,19 +346,22 @@ export default function Home() {
             </div>
             <div className={styles.workGrid}>
               {projects.map((p, i) => (
-                <div key={i} className={styles.workCard} data-animate style={{ transitionDelay: `${i * 0.12}s` }}>
+                <div key={i} className={styles.workCard} data-animate style={{ transitionDelay: `${i * 0.12}s`, borderTop: `2px solid ${p.accent}70`, ['--card-accent' as string]: p.accent } as React.CSSProperties}>
                   <div className={styles.workPreview} style={{ background: p.bg }}>
                     <div className={styles.workBar}>
-                      <span className={styles.wDot} /><span className={styles.wDot} /><span className={styles.wDot} />
-                      <div className={styles.workAddr} />
+                      <span className={styles.wDot} style={{ background: '#ff5f57' }} />
+                      <span className={styles.wDot} style={{ background: '#ffbd2e' }} />
+                      <span className={styles.wDot} style={{ background: '#28c840' }} />
+                      <div className={styles.workAddr}><span className={styles.workAddrText}>{p.url}</span></div>
                     </div>
                     {p.mockup}
+                    <div className={styles.workPreviewFade} />
                   </div>
                   <div className={styles.workInfo}>
                     <span className={styles.workTag} style={{ color: p.accent, borderColor: `${p.accent}44`, background: `${p.accent}12` }}>{p.tag}</span>
                     <h3 className={styles.workTitle}>{p.title}</h3>
                     <p className={styles.workDesc}>{p.desc}</p>
-                    <button onClick={() => setOpenProject(i)} className={styles.viewProjectBtn} style={{ color: p.accent, borderColor: `${p.accent}44`, background: 'transparent', fontFamily: 'inherit', cursor: 'pointer' }}>
+                    <button onClick={() => setOpenProject(i)} className={styles.viewProjectBtn} style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.18)', fontFamily: 'inherit', cursor: 'pointer' }}>
                       View Project →
                     </button>
                   </div>
