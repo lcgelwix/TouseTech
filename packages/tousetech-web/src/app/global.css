@@ -29,11 +29,13 @@ a {
 
 [data-animate] {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease-out, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
 }
 
 [data-animate].in-view {
   opacity: 1;
-  transform: none;
+  transform: translateY(0);
+  will-change: auto;
 }
