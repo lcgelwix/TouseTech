@@ -571,20 +571,32 @@ const projects = [
           </div>
         </div>
         {/* Classes */}
-        <div style={{ padding: '7px 12px 10px' }}>
+        <div style={{ padding: '7px 12px 6px' }}>
           <div style={{ fontSize: 4, fontWeight: 700, color: 'rgba(255,255,255,0.25)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 4 }}>Our Classes</div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 3.5 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 3 }}>
             {[
-              { label: 'Strength', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" width="10" height="10"><path d="M7 8v8M17 8v8M4 10v4M20 10v4M7 12h10"/></svg> },
-              { label: 'Cardio', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="10" height="10"><path d="M3 12h3l2-6 4 12 3-8 2 2h4"/></svg> },
-              { label: 'HIIT', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="10" height="10"><path d="M13 2L4 14h8l-1 8 9-12h-8l1-8z"/></svg> },
-            ].map(({ label, svg }) => (
-              <div key={label} style={{ background: 'rgba(34,197,94,0.06)', border: '1px solid rgba(34,197,94,0.2)', borderRadius: 4, padding: '5px 3px', display: 'flex', flexDirection: 'column', gap: 2.5, alignItems: 'center' }}>
-                {svg}
-                <span style={{ fontSize: 4.5, color: 'rgba(255,255,255,0.7)', fontWeight: 700 }}>{label}</span>
+              { label: 'Strength', desc: '5x weekly · Heavy lifting', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" width="9" height="9"><path d="M7 8v8M17 8v8M4 10v4M20 10v4M7 12h10"/></svg> },
+              { label: 'Cardio', desc: 'Daily · Endurance & cardio', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="9" height="9"><path d="M3 12h3l2-6 4 12 3-8 2 2h4"/></svg> },
+              { label: 'HIIT', desc: '4x weekly · High intensity', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="9" height="9"><path d="M13 2L4 14h8l-1 8 9-12h-8l1-8z"/></svg> },
+              { label: 'Yoga', desc: '3x weekly · Recovery focus', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" width="9" height="9"><path d="M12 3c0 0-4 4-4 8s4 8 4 8 4-4 4-8-4-8-4-8z"/><path d="M4 12h16"/></svg> },
+            ].map(({ label, desc, svg }) => (
+              <div key={label} style={{ background: 'rgba(34,197,94,0.06)', border: '1px solid rgba(34,197,94,0.15)', borderRadius: 4, padding: '4px 6px', display: 'flex', alignItems: 'center', gap: 5 }}>
+                <div style={{ flexShrink: 0 }}>{svg}</div>
+                <div>
+                  <div style={{ fontSize: 4.5, color: '#fff', fontWeight: 700 }}>{label}</div>
+                  <div style={{ fontSize: 3.5, color: 'rgba(255,255,255,0.35)', marginTop: 1 }}>{desc}</div>
+                </div>
               </div>
             ))}
           </div>
+        </div>
+        {/* CTA strip */}
+        <div style={{ background: 'rgba(34,197,94,0.08)', borderTop: '1px solid rgba(34,197,94,0.12)', padding: '6px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <div style={{ fontSize: 5, fontWeight: 800, color: '#fff' }}>Ready to start?</div>
+            <div style={{ fontSize: 3.5, color: 'rgba(255,255,255,0.35)', marginTop: 1 }}>First class free · No commitment</div>
+          </div>
+          <div style={{ background: '#22c55e', borderRadius: 3, padding: '3px 8px', fontSize: 4.5, fontWeight: 700, color: '#000' }}>Claim Free Class</div>
         </div>
       </div>
     ),
@@ -716,21 +728,34 @@ const projects = [
           </div>
         </div>
         {/* Menu items */}
-        <div style={{ padding: '7px 12px 10px' }}>
+        <div style={{ padding: '7px 12px 6px' }}>
           <div style={{ fontSize: 4, fontWeight: 700, color: 'rgba(255,255,255,0.22)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 4 }}>Menu Highlights</div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 3.5 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
             {[
-              { name: 'Grilled Salmon', price: '$24', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="10" height="10"><path d="M2 12s5-7 10-7 8 4 8 7-3 7-8 7S2 12 2 12z"/><circle cx="16" cy="10" r="1" fill="#f97316" stroke="none"/></svg> },
-              { name: 'Fish & Chips', price: '$18', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" width="10" height="10"><path d="M8 3v3a3 3 0 006 0V3"/><line x1="11" y1="6" x2="11" y2="20"/><line x1="18" y1="4" x2="18" y2="20"/></svg> },
-              { name: 'Clam Chowder', price: '$12', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" width="10" height="10"><path d="M5 9h14l-1 9a2 2 0 01-2 2H8a2 2 0 01-2-2L5 9z"/><path d="M3 9h18"/></svg> },
-            ].map(({ name, price, svg }) => (
-              <div key={name} style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '3.5px 7px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 4 }}>
-                <div style={{ width: 16, height: 16, background: 'rgba(249,115,22,0.12)', border: '1px solid rgba(249,115,22,0.22)', borderRadius: 3, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{svg}</div>
-                <span style={{ fontSize: 6, color: 'rgba(255,255,255,0.65)', fontWeight: 600, flex: 1 }}>{name}</span>
-                <span style={{ fontSize: 6.5, fontWeight: 800, color: '#fff' }}>{price}</span>
+              { name: 'Grilled Salmon', desc: 'Lemon butter, roasted veg', price: '$24', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="9" height="9"><path d="M2 12s5-7 10-7 8 4 8 7-3 7-8 7S2 12 2 12z"/><circle cx="16" cy="10" r="1" fill="#f97316" stroke="none"/></svg> },
+              { name: 'Fish & Chips', desc: 'Beer-battered cod, tartar', price: '$18', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" width="9" height="9"><path d="M8 3v3a3 3 0 006 0V3"/><line x1="11" y1="6" x2="11" y2="20"/><line x1="18" y1="4" x2="18" y2="20"/></svg> },
+              { name: 'Clam Chowder', desc: 'Made fresh daily, local clams', price: '$12', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" width="9" height="9"><path d="M5 9h14l-1 9a2 2 0 01-2 2H8a2 2 0 01-2-2L5 9z"/><path d="M3 9h18"/></svg> },
+              { name: 'Lobster Roll', desc: 'Maine lobster, toasted brioche', price: '$32', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="9" height="9"><path d="M12 3c3 0 6 2 7 5H5c1-3 4-5 7-5z"/><path d="M5 8h14v2a7 7 0 01-14 0V8z"/></svg> },
+            ].map(({ name, desc, price, svg }) => (
+              <div key={name} style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '3px 6px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 4 }}>
+                <div style={{ width: 14, height: 14, background: 'rgba(249,115,22,0.12)', border: '1px solid rgba(249,115,22,0.22)', borderRadius: 3, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{svg}</div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: 5, color: 'rgba(255,255,255,0.75)', fontWeight: 700 }}>{name}</div>
+                  <div style={{ fontSize: 3.5, color: 'rgba(255,255,255,0.3)', marginTop: 0.5 }}>{desc}</div>
+                </div>
+                <span style={{ fontSize: 6, fontWeight: 800, color: '#fff' }}>{price}</span>
               </div>
             ))}
           </div>
+        </div>
+        {/* Info strip */}
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '5px 12px', display: 'flex', gap: 10 }}>
+          {[['Hours', 'Mon–Sun · 11am–10pm'], ['Location', 'Waterfront District'], ['Reservations', '(555) 000-0000']].map(([label, val]) => (
+            <div key={label}>
+              <div style={{ fontSize: 3, color: 'rgba(255,255,255,0.25)', fontWeight: 700 }}>{label}</div>
+              <div style={{ fontSize: 3.5, color: 'rgba(255,255,255,0.45)', marginTop: 0.5 }}>{val}</div>
+            </div>
+          ))}
         </div>
       </div>
     ),
@@ -853,32 +878,43 @@ const projects = [
         {/* Services */}
         <div style={{ padding: '7px 12px 5px' }}>
           <div style={{ fontSize: 4, fontWeight: 700, color: 'rgba(255,255,255,0.22)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 4 }}>Services</div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 3.5 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 3 }}>
             {[
-              { name: 'Classic Cut', price: '$30', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" width="10" height="10"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="9" y1="9" x2="20" y2="20"/><line x1="9" y1="15" x2="20" y2="4"/></svg> },
-              { name: 'Skin Fade', price: '$35', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" width="10" height="10"><rect x="4" y="8" width="16" height="8" rx="2"/><line x1="4" y1="12" x2="20" y2="12"/><path d="M8 8V6a2 2 0 014 0v2"/></svg> },
-              { name: 'Beard Trim', price: '$20', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" width="10" height="10"><path d="M12 3a4 4 0 014 4v2c0 2.5-1.5 4-4 4s-4-1.5-4-4V7a4 4 0 014-4z"/><path d="M7 13c-1.5 1-2.5 2.5-2.5 4.5h15c0-2-1-3.5-2.5-4.5"/></svg> },
-              { name: 'Hot Shave', price: '$40', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="10" height="10"><path d="M12 2c0 6-4 8-4 12a4 4 0 008 0c0-4-4-6-4-12z"/></svg> },
-            ].map(({ name, price, svg }) => (
-              <div key={name} style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '4px 7px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(168,85,247,0.2)', borderRadius: 4 }}>
-                <div style={{ width: 16, height: 16, background: 'rgba(168,85,247,0.15)', border: '1px solid rgba(168,85,247,0.25)', borderRadius: 3, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{svg}</div>
-                <span style={{ fontSize: 5.5, color: 'rgba(255,255,255,0.65)', fontWeight: 600, flex: 1 }}>{name}</span>
-                <span style={{ fontSize: 6, fontWeight: 800, color: '#fff' }}>{price}</span>
+              { name: 'Classic Cut', desc: 'Scissor & clipper, styled', price: '$30', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" width="9" height="9"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="9" y1="9" x2="20" y2="20"/><line x1="9" y1="15" x2="20" y2="4"/></svg> },
+              { name: 'Skin Fade', desc: 'Seamless taper, all lengths', price: '$35', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" width="9" height="9"><rect x="4" y="8" width="16" height="8" rx="2"/><line x1="4" y1="12" x2="20" y2="12"/><path d="M8 8V6a2 2 0 014 0v2"/></svg> },
+              { name: 'Beard Trim', desc: 'Shape, lineup, hot towel', price: '$20', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" width="9" height="9"><path d="M12 3a4 4 0 014 4v2c0 2.5-1.5 4-4 4s-4-1.5-4-4V7a4 4 0 014-4z"/><path d="M7 13c-1.5 1-2.5 2.5-2.5 4.5h15c0-2-1-3.5-2.5-4.5"/></svg> },
+              { name: 'Hot Shave', desc: 'Straight razor, hot towel', price: '$40', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="9" height="9"><path d="M12 2c0 6-4 8-4 12a4 4 0 008 0c0-4-4-6-4-12z"/></svg> },
+            ].map(({ name, desc, price, svg }) => (
+              <div key={name} style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '3.5px 6px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(168,85,247,0.2)', borderRadius: 4 }}>
+                <div style={{ width: 14, height: 14, background: 'rgba(168,85,247,0.15)', border: '1px solid rgba(168,85,247,0.25)', borderRadius: 3, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{svg}</div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: 4.5, color: 'rgba(255,255,255,0.75)', fontWeight: 700 }}>{name}</div>
+                  <div style={{ fontSize: 3, color: 'rgba(255,255,255,0.3)', marginTop: 0.5 }}>{desc}</div>
+                </div>
+                <span style={{ fontSize: 5.5, fontWeight: 800, color: '#fff' }}>{price}</span>
               </div>
             ))}
           </div>
         </div>
         {/* Time slots */}
-        <div style={{ padding: '6px 12px 10px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 3, marginBottom: 4 }}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="2.5" strokeLinecap="round" width="8" height="8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-            <span style={{ fontSize: 4, fontWeight: 700, color: 'rgba(255,255,255,0.22)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Available Today</span>
+        <div style={{ padding: '5px 12px 5px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 3, marginBottom: 3 }}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="2.5" strokeLinecap="round" width="7" height="7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            <span style={{ fontSize: 3.5, fontWeight: 700, color: 'rgba(255,255,255,0.22)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Available Today</span>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 3 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 2.5 }}>
             {['9 AM', '10 AM', '12 PM', '1 PM', '3 PM', '5 PM'].map((time, i) => (
-              <div key={time} style={{ background: i === 2 ? '#a855f7' : 'rgba(255,255,255,0.05)', border: `1px solid ${i === 2 ? '#a855f7' : 'rgba(255,255,255,0.1)'}`, borderRadius: 3, padding: '2.5px 0', textAlign: 'center', fontSize: 4.5, color: i === 2 ? '#fff' : 'rgba(255,255,255,0.45)', fontWeight: 600 }}>{time}</div>
+              <div key={time} style={{ background: i === 2 ? '#a855f7' : 'rgba(255,255,255,0.05)', border: `1px solid ${i === 2 ? '#a855f7' : 'rgba(255,255,255,0.1)'}`, borderRadius: 3, padding: '2px 0', textAlign: 'center', fontSize: 4, color: i === 2 ? '#fff' : 'rgba(255,255,255,0.45)', fontWeight: 600 }}>{time}</div>
             ))}
           </div>
+        </div>
+        {/* CTA strip */}
+        <div style={{ background: 'rgba(168,85,247,0.08)', borderTop: '1px solid rgba(168,85,247,0.12)', padding: '5px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <div style={{ fontSize: 5, fontWeight: 800, color: '#fff' }}>Book your next cut</div>
+            <div style={{ fontSize: 3.5, color: 'rgba(255,255,255,0.35)', marginTop: 1 }}>Walk-ins welcome · Same day available</div>
+          </div>
+          <div style={{ background: '#a855f7', borderRadius: 3, padding: '3px 8px', fontSize: 4.5, fontWeight: 700, color: '#000' }}>Book Now</div>
         </div>
       </div>
     ),
