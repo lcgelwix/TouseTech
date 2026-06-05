@@ -536,9 +536,9 @@ const projects = [
     mockup: (
       <div style={{ fontFamily: 'inherit', color: '#fff' }}>
         {/* Nav */}
-        <div style={{ background: 'rgba(0,0,0,0.45)', borderBottom: '1px solid rgba(255,255,255,0.07)', padding: '6px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ background: '#070f0a', borderBottom: '1px solid rgba(34,197,94,0.18)', padding: '6px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-            <svg viewBox="0 0 28 28" width="18" height="18" style={{ flexShrink: 0 }}>
+            <svg viewBox="0 0 28 28" width="16" height="16" style={{ flexShrink: 0 }}>
               <polygon points="14,1.5 25.5,7.8 25.5,20.2 14,26.5 2.5,20.2 2.5,7.8" fill="#22c55e"/>
               <path d="M9.5 20 L14 8 L18.5 20 M11.5 15.5 L16.5 15.5" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
             </svg>
@@ -549,69 +549,39 @@ const projects = [
             <div style={{ background: '#22c55e', borderRadius: 2, padding: '2px 6px', fontSize: 4.5, fontWeight: 700, color: '#000' }}>JOIN NOW</div>
           </div>
         </div>
-        {/* Hero: text + image placeholder */}
-        <div style={{ padding: '9px 12px 8px', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', gap: 8, alignItems: 'flex-start' }}>
-          <div style={{ flex: 1 }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 3, background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 20, padding: '1.5px 7px', marginBottom: 4 }}>
-              <span style={{ fontSize: 4, color: '#22c55e' }}>★</span>
-              <span style={{ fontSize: 4, color: 'rgba(255,255,255,0.6)', fontWeight: 600 }}>Michigan's #1 Gym</span>
-            </div>
-            <div style={{ fontSize: 9, fontWeight: 900, color: '#fff', lineHeight: 1.18, marginBottom: 3 }}>Transform<br/>Your Body.</div>
-            <div style={{ fontSize: 5, color: 'rgba(255,255,255,0.35)', lineHeight: 1.5, marginBottom: 5 }}>Expert trainers &amp; modern equipment.</div>
-            <div style={{ display: 'flex', gap: 3 }}>
-              <div style={{ background: '#22c55e', borderRadius: 2, padding: '2.5px 7px', fontSize: 5, fontWeight: 700, color: '#000' }}>Get Started</div>
-              <div style={{ border: '1px solid rgba(255,255,255,0.14)', borderRadius: 2, padding: '2.5px 6px', fontSize: 5, color: 'rgba(255,255,255,0.38)', fontWeight: 500 }}>Classes</div>
-            </div>
-            <div style={{ display: 'flex', gap: 9, marginTop: 6 }}>
-              {[['500+', 'Members'], ['20+', 'Classes'], ['5.0★', 'Rating']].map(([v, l]) => (
-                <div key={l}>
-                  <div style={{ fontSize: 7, fontWeight: 800, color: '#fff' }}>{v}</div>
-                  <div style={{ fontSize: 3.5, color: 'rgba(255,255,255,0.25)' }}>{l}</div>
-                </div>
-              ))}
-            </div>
+        {/* Hero */}
+        <div style={{ background: 'linear-gradient(160deg, rgba(34,197,94,0.12), rgba(34,197,94,0.02)), #060e08', padding: '10px 12px 8px', borderBottom: '1px solid rgba(34,197,94,0.1)' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 3, background: 'rgba(34,197,94,0.12)', border: '1px solid rgba(34,197,94,0.28)', borderRadius: 20, padding: '1.5px 7px', marginBottom: 5 }}>
+            <span style={{ fontSize: 4, color: '#22c55e' }}>★</span>
+            <span style={{ fontSize: 4, color: 'rgba(255,255,255,0.7)', fontWeight: 600 }}>Michigan&apos;s #1 Gym</span>
           </div>
-          {/* Hero image placeholder */}
-          <div style={{ width: 58, height: 72, borderRadius: 5, overflow: 'hidden', flexShrink: 0, border: '1px solid rgba(34,197,94,0.18)', position: 'relative' }}>
-            <svg viewBox="0 0 58 72" width="58" height="72" style={{ display: 'block', background: 'linear-gradient(160deg, #1c3020, #0d1a10)' }}>
-              <defs>
-                <pattern id="apexGrid" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
-                  <path d="M 8 0 L 0 0 0 8" fill="none" stroke="rgba(34,197,94,0.07)" strokeWidth="0.5"/>
-                </pattern>
-                <linearGradient id="apexFade" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="40%" stopColor="rgba(0,0,0,0)" stopOpacity="0"/>
-                  <stop offset="100%" stopColor="#0d1a10" stopOpacity="0.85"/>
-                </linearGradient>
-              </defs>
-              <rect width="58" height="72" fill="url(#apexGrid)"/>
-              <g transform="translate(8,18)">
-                <rect x="0" y="7" width="5" height="12" rx="2" fill="none" stroke="rgba(34,197,94,0.4)" strokeWidth="1"/>
-                <rect x="37" y="7" width="5" height="12" rx="2" fill="none" stroke="rgba(34,197,94,0.4)" strokeWidth="1"/>
-                <rect x="5" y="4" width="6" height="18" rx="1.5" fill="rgba(34,197,94,0.25)" stroke="rgba(34,197,94,0.5)" strokeWidth="0.8"/>
-                <rect x="31" y="4" width="6" height="18" rx="1.5" fill="rgba(34,197,94,0.25)" stroke="rgba(34,197,94,0.5)" strokeWidth="0.8"/>
-                <line x1="11" y1="13" x2="31" y2="13" stroke="rgba(34,197,94,0.6)" strokeWidth="2.5" strokeLinecap="round"/>
-              </g>
-              <ellipse cx="29" cy="10" rx="5" ry="5.5" fill="rgba(255,255,255,0.06)"/>
-              <path d="M21 22 Q29 18 37 22 L37 30 Q29 26 21 30 Z" fill="rgba(255,255,255,0.04)"/>
-              <rect width="58" height="72" fill="url(#apexFade)"/>
-            </svg>
-            <div style={{ position: 'absolute', bottom: 5, left: 5, right: 5, background: 'rgba(0,0,0,0.65)', borderRadius: 3, padding: '2px 4px', textAlign: 'center' }}>
-              <span style={{ fontSize: 4.5, fontWeight: 700, color: '#fff' }}>Open Daily 5am–11pm</span>
-            </div>
+          <div style={{ fontSize: 11, fontWeight: 900, color: '#fff', lineHeight: 1.15, marginBottom: 4 }}>Transform<br/>Your Body.</div>
+          <div style={{ fontSize: 4.5, color: 'rgba(255,255,255,0.45)', lineHeight: 1.5, marginBottom: 7 }}>Expert trainers, modern equipment, real results.</div>
+          <div style={{ display: 'flex', gap: 4, marginBottom: 8 }}>
+            <div style={{ background: '#22c55e', borderRadius: 3, padding: '3px 9px', fontSize: 5, fontWeight: 700, color: '#000' }}>Get Started →</div>
+            <div style={{ border: '1px solid rgba(255,255,255,0.12)', borderRadius: 3, padding: '3px 8px', fontSize: 5, color: 'rgba(255,255,255,0.4)' }}>View Classes</div>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 4, borderTop: '1px solid rgba(34,197,94,0.12)', paddingTop: 8 }}>
+            {[['500+', 'Members'], ['20+', 'Classes/Wk'], ['5.0★', 'Rating']].map(([v, l]) => (
+              <div key={l} style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: 8, fontWeight: 800, color: '#22c55e' }}>{v}</div>
+                <div style={{ fontSize: 3.5, color: 'rgba(255,255,255,0.3)', marginTop: 1 }}>{l}</div>
+              </div>
+            ))}
           </div>
         </div>
         {/* Classes */}
         <div style={{ padding: '7px 12px 10px' }}>
-          <div style={{ fontSize: 4, fontWeight: 700, color: 'rgba(255,255,255,0.22)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 4 }}>Our Classes</div>
+          <div style={{ fontSize: 4, fontWeight: 700, color: 'rgba(255,255,255,0.25)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 4 }}>Our Classes</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 3.5 }}>
             {[
               { label: 'Strength', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" width="10" height="10"><path d="M7 8v8M17 8v8M4 10v4M20 10v4M7 12h10"/></svg> },
               { label: 'Cardio', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="10" height="10"><path d="M3 12h3l2-6 4 12 3-8 2 2h4"/></svg> },
               { label: 'HIIT', svg: <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="10" height="10"><path d="M13 2L4 14h8l-1 8 9-12h-8l1-8z"/></svg> },
             ].map(({ label, svg }) => (
-              <div key={label} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(34,197,94,0.2)', borderRadius: 4, padding: '5px 3px', display: 'flex', flexDirection: 'column', gap: 2.5, alignItems: 'center' }}>
+              <div key={label} style={{ background: 'rgba(34,197,94,0.06)', border: '1px solid rgba(34,197,94,0.2)', borderRadius: 4, padding: '5px 3px', display: 'flex', flexDirection: 'column', gap: 2.5, alignItems: 'center' }}>
                 {svg}
-                <span style={{ fontSize: 4.5, color: 'rgba(255,255,255,0.6)', fontWeight: 700 }}>{label}</span>
+                <span style={{ fontSize: 4.5, color: 'rgba(255,255,255,0.7)', fontWeight: 700 }}>{label}</span>
               </div>
             ))}
           </div>
@@ -710,7 +680,7 @@ const projects = [
     mockup: (
       <div style={{ fontFamily: 'inherit', color: '#fff' }}>
         {/* Nav */}
-        <div style={{ background: 'rgba(0,0,0,0.45)', borderBottom: '1px solid rgba(255,255,255,0.07)', padding: '6px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ background: '#070c0a', borderBottom: '1px solid rgba(249,115,22,0.18)', padding: '6px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
             <svg viewBox="0 0 28 28" width="18" height="18" style={{ flexShrink: 0 }}>
               <path d="M14 2 L23 7 L23 17 Q23 24 14 27 Q5 24 5 17 L5 7 Z" fill="#f97316"/>
@@ -724,52 +694,25 @@ const projects = [
             <div style={{ background: '#f97316', borderRadius: 2, padding: '2px 6px', fontSize: 4.5, fontWeight: 700, color: '#000' }}>RESERVE</div>
           </div>
         </div>
-        {/* Hero: text + image placeholder */}
-        <div style={{ padding: '9px 12px 8px', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', gap: 8, alignItems: 'flex-start' }}>
-          <div style={{ flex: 1 }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 3, background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 20, padding: '1.5px 7px', marginBottom: 4 }}>
-              <span style={{ fontSize: 4, color: '#22c55e' }}>●</span>
-              <span style={{ fontSize: 4, color: 'rgba(255,255,255,0.6)', fontWeight: 600 }}>Open Now · Closes 10pm</span>
-            </div>
-            <div style={{ fontSize: 9, fontWeight: 900, color: '#fff', lineHeight: 1.18, marginBottom: 3 }}>Fresh From<br/>The Sea.</div>
-            <div style={{ fontSize: 5, color: 'rgba(255,255,255,0.35)', lineHeight: 1.5, marginBottom: 5 }}>Locally sourced seafood, waterfront views.</div>
-            <div style={{ display: 'flex', gap: 3 }}>
-              <div style={{ background: '#f97316', borderRadius: 2, padding: '2.5px 7px', fontSize: 5, fontWeight: 700, color: '#000' }}>View Menu</div>
-              <div style={{ border: '1px solid rgba(255,255,255,0.14)', borderRadius: 2, padding: '2.5px 6px', fontSize: 5, color: 'rgba(255,255,255,0.38)', fontWeight: 500 }}>Reserve</div>
-            </div>
-            <div style={{ display: 'flex', gap: 9, marginTop: 6 }}>
-              {[['★ 4.9', 'Rating'], ['200+', 'Reviews'], ["Est. '98", 'Founded']].map(([v, l]) => (
-                <div key={l}>
-                  <div style={{ fontSize: 7, fontWeight: 800, color: '#fff' }}>{v}</div>
-                  <div style={{ fontSize: 3.5, color: 'rgba(255,255,255,0.25)' }}>{l}</div>
-                </div>
-              ))}
-            </div>
+        {/* Hero */}
+        <div style={{ background: 'linear-gradient(160deg, rgba(249,115,22,0.12), rgba(249,115,22,0.02)), #0b0806', padding: '10px 12px 8px', borderBottom: '1px solid rgba(249,115,22,0.1)' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 3, background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 20, padding: '1.5px 7px', marginBottom: 5 }}>
+            <span style={{ fontSize: 4, color: '#22c55e' }}>●</span>
+            <span style={{ fontSize: 4, color: 'rgba(255,255,255,0.7)', fontWeight: 600 }}>Open Now · Closes 10pm</span>
           </div>
-          {/* Hero image placeholder */}
-          <div style={{ width: 58, height: 72, borderRadius: 5, overflow: 'hidden', flexShrink: 0, border: '1px solid rgba(249,115,22,0.18)', position: 'relative' }}>
-            <svg viewBox="0 0 58 72" width="58" height="72" style={{ display: 'block', background: 'linear-gradient(160deg, #2a1a0d, #1a1008)' }}>
-              <defs>
-                <pattern id="grillGrid" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
-                  <path d="M 8 0 L 0 0 0 8" fill="none" stroke="rgba(249,115,22,0.07)" strokeWidth="0.5"/>
-                </pattern>
-                <linearGradient id="grillFade" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="40%" stopColor="rgba(0,0,0,0)" stopOpacity="0"/>
-                  <stop offset="100%" stopColor="#1a1008" stopOpacity="0.85"/>
-                </linearGradient>
-              </defs>
-              <rect width="58" height="72" fill="url(#grillGrid)"/>
-              <circle cx="29" cy="30" r="16" fill="none" stroke="rgba(249,115,22,0.2)" strokeWidth="1"/>
-              <circle cx="29" cy="30" r="12" fill="rgba(249,115,22,0.1)" stroke="rgba(249,115,22,0.25)" strokeWidth="0.8"/>
-              <ellipse cx="29" cy="30" rx="7" ry="5" fill="rgba(249,115,22,0.3)" stroke="rgba(249,115,22,0.4)" strokeWidth="0.5"/>
-              <path d="M22 28 Q26 24 30 28 Q34 32 38 28" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1" strokeLinecap="round"/>
-              <line x1="18" y1="15" x2="18" y2="48" stroke="rgba(255,255,255,0.1)" strokeWidth="1" strokeLinecap="round"/>
-              <line x1="40" y1="15" x2="40" y2="48" stroke="rgba(255,255,255,0.1)" strokeWidth="1" strokeLinecap="round"/>
-              <rect width="58" height="72" fill="url(#grillFade)"/>
-            </svg>
-            <div style={{ position: 'absolute', bottom: 5, left: 5, right: 5, background: 'rgba(0,0,0,0.65)', borderRadius: 3, padding: '2px 4px', textAlign: 'center' }}>
-              <span style={{ fontSize: 4.5, fontWeight: 700, color: '#fff' }}>Waterfront District</span>
-            </div>
+          <div style={{ fontSize: 11, fontWeight: 900, color: '#fff', lineHeight: 1.15, marginBottom: 4 }}>Fresh From<br/>The Sea.</div>
+          <div style={{ fontSize: 4.5, color: 'rgba(255,255,255,0.45)', lineHeight: 1.5, marginBottom: 7 }}>Locally sourced seafood, waterfront views.</div>
+          <div style={{ display: 'flex', gap: 4, marginBottom: 8 }}>
+            <div style={{ background: '#f97316', borderRadius: 3, padding: '3px 9px', fontSize: 5, fontWeight: 700, color: '#000' }}>View Menu →</div>
+            <div style={{ border: '1px solid rgba(255,255,255,0.12)', borderRadius: 3, padding: '3px 8px', fontSize: 5, color: 'rgba(255,255,255,0.4)' }}>Reserve</div>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 4, borderTop: '1px solid rgba(249,115,22,0.12)', paddingTop: 8 }}>
+            {[['★ 4.9', 'Rating'], ['200+', 'Reviews'], ["Est. '98", 'Founded']].map(([v, l]) => (
+              <div key={l} style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: 8, fontWeight: 800, color: '#f97316' }}>{v}</div>
+                <div style={{ fontSize: 3.5, color: 'rgba(255,255,255,0.3)', marginTop: 1 }}>{l}</div>
+              </div>
+            ))}
           </div>
         </div>
         {/* Menu items */}
@@ -876,7 +819,7 @@ const projects = [
     mockup: (
       <div style={{ fontFamily: 'inherit', color: '#fff' }}>
         {/* Nav */}
-        <div style={{ background: 'rgba(0,0,0,0.45)', borderBottom: '1px solid rgba(255,255,255,0.07)', padding: '6px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ background: '#090711', borderBottom: '1px solid rgba(168,85,247,0.18)', padding: '6px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
             <svg viewBox="0 0 28 28" width="18" height="18" style={{ flexShrink: 0 }}>
               <path d="M14 2 L26 14 L14 26 L2 14 Z" fill="#a855f7"/>
@@ -887,48 +830,24 @@ const projects = [
           </div>
           <div style={{ background: '#a855f7', borderRadius: 2, padding: '2px 6px', fontSize: 4.5, fontWeight: 700, color: '#000' }}>BOOK NOW</div>
         </div>
-        {/* Hero: text + image placeholder */}
-        <div style={{ padding: '9px 12px 8px', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', gap: 8, alignItems: 'flex-start' }}>
-          <div style={{ flex: 1 }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 3, background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 20, padding: '1.5px 7px', marginBottom: 4 }}>
-              <span style={{ fontSize: 4, color: '#fbbf24' }}>★★★★★</span>
-              <span style={{ fontSize: 4, color: 'rgba(255,255,255,0.6)', fontWeight: 600 }}>5.0 · 300+ cuts</span>
-            </div>
-            <div style={{ fontSize: 9, fontWeight: 900, color: '#fff', lineHeight: 1.18, marginBottom: 3 }}>Your Perfect<br/>Cut.</div>
-            <div style={{ fontSize: 5, color: 'rgba(255,255,255,0.35)', lineHeight: 1.5, marginBottom: 5 }}>Modern techniques, classic craft. Book in seconds.</div>
-            <div style={{ background: '#a855f7', borderRadius: 2, padding: '2.5px 7px', fontSize: 5, fontWeight: 700, color: '#000', display: 'inline-block' }}>Book Appointment</div>
-            <div style={{ display: 'flex', gap: 9, marginTop: 6 }}>
-              {[['4', 'Barbers'], ['$20+', 'From'], ['Same', 'Day Avail.']].map(([v, l]) => (
-                <div key={l}>
-                  <div style={{ fontSize: 7, fontWeight: 800, color: '#fff' }}>{v}</div>
-                  <div style={{ fontSize: 3.5, color: 'rgba(255,255,255,0.25)' }}>{l}</div>
-                </div>
-              ))}
-            </div>
+        {/* Hero */}
+        <div style={{ background: 'linear-gradient(160deg, rgba(168,85,247,0.12), rgba(168,85,247,0.02)), #080611', padding: '10px 12px 8px', borderBottom: '1px solid rgba(168,85,247,0.1)' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 3, background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 20, padding: '1.5px 7px', marginBottom: 5 }}>
+            <span style={{ fontSize: 4, color: '#fbbf24' }}>★★★★★</span>
+            <span style={{ fontSize: 4, color: 'rgba(255,255,255,0.7)', fontWeight: 600 }}>5.0 · 300+ cuts</span>
           </div>
-          {/* Hero image placeholder */}
-          <div style={{ width: 58, height: 72, borderRadius: 5, overflow: 'hidden', flexShrink: 0, border: '1px solid rgba(168,85,247,0.18)', position: 'relative' }}>
-            <svg viewBox="0 0 58 72" width="58" height="72" style={{ display: 'block', background: 'linear-gradient(160deg, #1e1230, #110d20)' }}>
-              <defs>
-                <pattern id="barberStripes" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
-                  <path d="M 6 0 L 0 6" fill="none" stroke="rgba(168,85,247,0.07)" strokeWidth="1"/>
-                </pattern>
-                <linearGradient id="barberFade" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="40%" stopColor="rgba(0,0,0,0)" stopOpacity="0"/>
-                  <stop offset="100%" stopColor="#110d20" stopOpacity="0.85"/>
-                </linearGradient>
-              </defs>
-              <rect width="58" height="72" fill="url(#barberStripes)"/>
-              <circle cx="18" cy="22" r="7" fill="none" stroke="rgba(168,85,247,0.35)" strokeWidth="1.2"/>
-              <circle cx="18" cy="44" r="7" fill="none" stroke="rgba(168,85,247,0.35)" strokeWidth="1.2"/>
-              <line x1="24" y1="27" x2="48" y2="54" stroke="rgba(168,85,247,0.5)" strokeWidth="1.5" strokeLinecap="round"/>
-              <line x1="24" y1="39" x2="48" y2="12" stroke="rgba(168,85,247,0.5)" strokeWidth="1.5" strokeLinecap="round"/>
-              <rect x="46" y="8" width="6" height="42" rx="3" fill="rgba(168,85,247,0.1)" stroke="rgba(168,85,247,0.2)" strokeWidth="0.8"/>
-              <rect width="58" height="72" fill="url(#barberFade)"/>
-            </svg>
-            <div style={{ position: 'absolute', bottom: 5, left: 5, right: 5, background: 'rgba(0,0,0,0.65)', borderRadius: 3, padding: '2px 4px', textAlign: 'center' }}>
-              <span style={{ fontSize: 4.5, fontWeight: 700, color: '#fff' }}>Walk-ins Welcome</span>
-            </div>
+          <div style={{ fontSize: 11, fontWeight: 900, color: '#fff', lineHeight: 1.15, marginBottom: 4 }}>Your Perfect<br/>Cut.</div>
+          <div style={{ fontSize: 4.5, color: 'rgba(255,255,255,0.45)', lineHeight: 1.5, marginBottom: 7 }}>Modern techniques, classic craft. Book in seconds.</div>
+          <div style={{ display: 'flex', gap: 4, marginBottom: 8 }}>
+            <div style={{ background: '#a855f7', borderRadius: 3, padding: '3px 9px', fontSize: 5, fontWeight: 700, color: '#000' }}>Book Appointment →</div>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 4, borderTop: '1px solid rgba(168,85,247,0.12)', paddingTop: 8 }}>
+            {[['4', 'Barbers'], ['$20+', 'Starting'], ['Same Day', 'Available']].map(([v, l]) => (
+              <div key={l} style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: 8, fontWeight: 800, color: '#a855f7' }}>{v}</div>
+                <div style={{ fontSize: 3.5, color: 'rgba(255,255,255,0.3)', marginTop: 1 }}>{l}</div>
+              </div>
+            ))}
           </div>
         </div>
         {/* Services */}
