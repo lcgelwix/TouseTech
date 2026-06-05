@@ -346,7 +346,7 @@ export default function Home() {
             </div>
             <div className={styles.workGrid}>
               {projects.map((p, i) => (
-                <div key={i} className={styles.workCard} data-animate style={{ transitionDelay: `${i * 0.12}s`, borderTop: `2px solid ${p.accent}70`, ['--card-accent' as string]: p.accent } as React.CSSProperties}>
+                <div key={i} className={styles.workCard} data-animate style={{ transitionDelay: `${i * 0.12}s`, ['--card-accent' as string]: p.accent } as React.CSSProperties}>
                   <div className={styles.workPreview} style={{ background: p.bg }}>
                     <div className={styles.workBar}>
                       <span className={styles.wDot} style={{ background: '#ff5f57' }} />
@@ -358,7 +358,7 @@ export default function Home() {
                     <div className={styles.workPreviewFade} />
                   </div>
                   <div className={styles.workInfo}>
-                    <span className={styles.workTag} style={{ color: p.accent, borderColor: `${p.accent}44`, background: `${p.accent}12` }}>{p.tag}</span>
+                    <span className={styles.workTag} style={{ color: 'rgba(255,255,255,0.6)', borderColor: 'rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.05)' }}>{p.tag}</span>
                     <h3 className={styles.workTitle}>{p.title}</h3>
                     <p className={styles.workDesc}>{p.desc}</p>
                     <button onClick={() => setOpenProject(i)} className={styles.viewProjectBtn} style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.18)', fontFamily: 'inherit', cursor: 'pointer' }}>
@@ -597,12 +597,8 @@ const projects = [
         <div style={{ background: 'rgba(0,0,0,0.45)', borderBottom: '1px solid rgba(255,255,255,0.07)', padding: '6px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
             <svg viewBox="0 0 28 28" width="18" height="18" style={{ flexShrink: 0 }}>
-              <circle cx="14" cy="14" r="13" fill="#22c55e"/>
-              <rect x="3" y="11.5" width="3" height="5" rx="1" fill="white"/>
-              <rect x="22" y="11.5" width="3" height="5" rx="1" fill="white"/>
-              <rect x="6" y="10" width="3.5" height="8" rx="0.5" fill="white"/>
-              <rect x="18.5" y="10" width="3.5" height="8" rx="0.5" fill="white"/>
-              <rect x="9.5" y="12.5" width="9" height="3" rx="1" fill="white"/>
+              <polygon points="14,1.5 25.5,7.8 25.5,20.2 14,26.5 2.5,20.2 2.5,7.8" fill="#22c55e"/>
+              <path d="M9.5 20 L14 8 L18.5 20 M11.5 15.5 L16.5 15.5" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
             </svg>
             <span style={{ fontSize: 6, fontWeight: 900, color: '#fff', letterSpacing: '0.08em' }}>APEX FITNESS</span>
           </div>
@@ -685,7 +681,7 @@ const projects = [
         {/* Nav */}
         <div style={{ background: '#0a140c', borderBottom: '1px solid rgba(34,197,94,0.15)', padding: '10px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <svg viewBox="0 0 28 28" width="28" height="28"><circle cx="14" cy="14" r="13" fill="#22c55e"/><rect x="3" y="11.5" width="3" height="5" rx="1" fill="white"/><rect x="22" y="11.5" width="3" height="5" rx="1" fill="white"/><rect x="6" y="10" width="3.5" height="8" rx="0.5" fill="white"/><rect x="18.5" y="10" width="3.5" height="8" rx="0.5" fill="white"/><rect x="9.5" y="12.5" width="9" height="3" rx="1" fill="white"/></svg>
+            <svg viewBox="0 0 28 28" width="28" height="28"><polygon points="14,1.5 25.5,7.8 25.5,20.2 14,26.5 2.5,20.2 2.5,7.8" fill="#22c55e"/><path d="M9.5 20 L14 8 L18.5 20 M11.5 15.5 L16.5 15.5" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
             <span style={{ fontSize: 11, fontWeight: 900, color: '#fff', letterSpacing: '0.12em' }}>APEX FITNESS</span>
           </div>
           <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
@@ -775,11 +771,9 @@ const projects = [
         <div style={{ background: 'rgba(0,0,0,0.45)', borderBottom: '1px solid rgba(255,255,255,0.07)', padding: '6px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
             <svg viewBox="0 0 28 28" width="18" height="18" style={{ flexShrink: 0 }}>
-              <circle cx="14" cy="14" r="13" fill="#f97316"/>
-              <circle cx="14" cy="8" r="2.2" fill="none" stroke="white" strokeWidth="1.5"/>
-              <line x1="14" y1="10.2" x2="14" y2="22" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-              <line x1="9" y1="15" x2="19" y2="15" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-              <path d="M9 22 Q9 18 14 18 Q19 18 19 22" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M14 2 L23 7 L23 17 Q23 24 14 27 Q5 24 5 17 L5 7 Z" fill="#f97316"/>
+              <path d="M9 9 L9 18 M19 9 L19 18 M9 13.5 L19 13.5" stroke="white" strokeWidth="2" strokeLinecap="round" fill="none"/>
+              <path d="M8.5 22 Q11 20.5 14 22 Q17 23.5 19.5 22" stroke="white" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
             </svg>
             <span style={{ fontSize: 6, fontWeight: 900, color: '#fff', letterSpacing: '0.05em' }}>HARBOR GRILL</span>
           </div>
@@ -860,7 +854,7 @@ const projects = [
         {/* Nav */}
         <div style={{ background: '#120d08', borderBottom: '1px solid rgba(255,255,255,0.07)', padding: '10px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <svg viewBox="0 0 28 28" width="28" height="28"><circle cx="14" cy="14" r="13" fill="#f97316"/><circle cx="14" cy="8" r="2.2" fill="none" stroke="white" strokeWidth="1.5"/><line x1="14" y1="10.2" x2="14" y2="22" stroke="white" strokeWidth="1.5" strokeLinecap="round"/><line x1="9" y1="15" x2="19" y2="15" stroke="white" strokeWidth="1.5" strokeLinecap="round"/><path d="M9 22 Q9 18 14 18 Q19 18 19 22" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round"/></svg>
+            <svg viewBox="0 0 28 28" width="28" height="28"><path d="M14 2 L23 7 L23 17 Q23 24 14 27 Q5 24 5 17 L5 7 Z" fill="#f97316"/><path d="M9 9 L9 18 M19 9 L19 18 M9 13.5 L19 13.5" stroke="white" strokeWidth="2" strokeLinecap="round" fill="none"/><path d="M8.5 22 Q11 20.5 14 22 Q17 23.5 19.5 22" stroke="white" strokeWidth="1.2" fill="none" strokeLinecap="round"/></svg>
             <span style={{ fontSize: 11, fontWeight: 900, color: '#fff', letterSpacing: '0.08em' }}>HARBOR GRILL</span>
           </div>
           <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
@@ -943,11 +937,9 @@ const projects = [
         <div style={{ background: 'rgba(0,0,0,0.45)', borderBottom: '1px solid rgba(255,255,255,0.07)', padding: '6px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
             <svg viewBox="0 0 28 28" width="18" height="18" style={{ flexShrink: 0 }}>
-              <circle cx="14" cy="14" r="13" fill="#a855f7"/>
-              <circle cx="9" cy="10" r="3" fill="none" stroke="white" strokeWidth="1.5"/>
-              <circle cx="9" cy="18" r="3" fill="none" stroke="white" strokeWidth="1.5"/>
-              <line x1="11.5" y1="12.5" x2="21" y2="21" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-              <line x1="11.5" y1="15.5" x2="21" y2="7" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M14 2 L26 14 L14 26 L2 14 Z" fill="#a855f7"/>
+              <path d="M8 19 L8 13 L11.5 16 L14 11 L16.5 16 L20 13 L20 19" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+              <line x1="8" y1="19" x2="20" y2="19" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
             </svg>
             <span style={{ fontSize: 6, fontWeight: 900, color: '#fff', letterSpacing: '0.06em' }}>PRECISION BARBERS</span>
           </div>
@@ -1034,7 +1026,7 @@ const projects = [
         {/* Nav */}
         <div style={{ background: '#0d0a14', borderBottom: '1px solid rgba(255,255,255,0.07)', padding: '10px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <svg viewBox="0 0 28 28" width="28" height="28"><circle cx="14" cy="14" r="13" fill="#a855f7"/><circle cx="9" cy="10" r="3" fill="none" stroke="white" strokeWidth="1.5"/><circle cx="9" cy="18" r="3" fill="none" stroke="white" strokeWidth="1.5"/><line x1="11.5" y1="12.5" x2="21" y2="21" stroke="white" strokeWidth="1.5" strokeLinecap="round"/><line x1="11.5" y1="15.5" x2="21" y2="7" stroke="white" strokeWidth="1.5" strokeLinecap="round"/></svg>
+            <svg viewBox="0 0 28 28" width="28" height="28"><path d="M14 2 L26 14 L14 26 L2 14 Z" fill="#a855f7"/><path d="M8 19 L8 13 L11.5 16 L14 11 L16.5 16 L20 13 L20 19" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none"/><line x1="8" y1="19" x2="20" y2="19" stroke="white" strokeWidth="1.6" strokeLinecap="round"/></svg>
             <span style={{ fontSize: 11, fontWeight: 900, color: '#fff', letterSpacing: '0.1em' }}>PRECISION BARBERS</span>
           </div>
           <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
