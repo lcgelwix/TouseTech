@@ -26,12 +26,6 @@
   text-transform: uppercase;
 }
 
-.brandLogo {
-  width: 72px;
-  height: 65px;
-  flex-shrink: 0;
-}
-
 .links {
   display: flex;
   gap: 2.2rem;
