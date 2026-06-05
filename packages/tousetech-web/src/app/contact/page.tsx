@@ -53,7 +53,7 @@ export default function ContactPage() {
 
           {/* Contact info cards */}
           <div className={styles.infoGrid}>
-            <a href="mailto:lcgelwix@gmail.com" className={styles.infoCard}>
+            <a href="mailto:hello.tousetech@gmail.com" className={styles.infoCard}>
               <div className={styles.infoIcon} style={{ background: '#2563eb', color: '#fff' }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <path strokeLinecap="round" strokeLinejoin="round"
@@ -62,7 +62,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className={styles.infoLabel}>Email</p>
-                <p className={styles.infoValue}>lcgelwix@gmail.com</p>
+                <p className={styles.infoValue}>hello.tousetech@gmail.com</p>
               </div>
             </a>
 
