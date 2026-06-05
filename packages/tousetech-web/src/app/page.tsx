@@ -441,7 +441,7 @@ export default function Home() {
               <p className={styles.footerCopy}>© 2026 TouseTech. All Rights Reserved.</p>
             </div>
             <div className={styles.footerRight}>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+              <a href="https://instagram.com/tousetech" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" stroke="none"/></svg>
                 Instagram
               </a>
