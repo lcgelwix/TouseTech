@@ -13,13 +13,17 @@ export default function Logo() {
         </linearGradient>
       </defs>
 
-      {/* White T — diagonal right edge creates the split */}
-      <path d="M4,8 L23,8 L20,18 L4,18 Z" fill="white" />
-      <rect x="10" y="17" width="10" height="22" rx="1.5" fill="white" />
+      {/* White T — slim crossbar, single diagonal slat, narrow stem */}
+      <path
+        d="M3,6 L22,6 L20,13 L15,13 L15,39 L10,39 L10,13 L3,13 Z"
+        fill="white"
+      />
 
-      {/* Blue T — diagonal left edge mirrors the split */}
-      <path d="M24,8 L40,8 L40,18 L21,18 Z" fill="url(#tt-blue)" />
-      <rect x="24" y="17" width="10" height="22" rx="1.5" fill="url(#tt-blue)" />
+      {/* Blue T — mirrored slat, matching slim proportions */}
+      <path
+        d="M23,6 L41,6 L41,13 L34,13 L34,39 L29,39 L29,13 L21,13 Z"
+        fill="url(#tt-blue)"
+      />
     </svg>
   );
 }
