@@ -27,9 +27,11 @@
 }
 
 .brandLogo {
-  width: 38px;
+  width: 42px;
   height: 35px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
 
 .links {
