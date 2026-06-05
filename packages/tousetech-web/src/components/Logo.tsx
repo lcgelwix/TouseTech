@@ -1,29 +1,25 @@
 export default function Logo() {
   return (
     <svg
-      viewBox="0 0 55 56"
+      viewBox="0 0 52 40"
       xmlns="http://www.w3.org/2000/svg"
       aria-label="TouseTech logo"
       role="img"
     >
       <defs>
-        <linearGradient id="tt-white-fade" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="white" stopOpacity="1" />
-          <stop offset="100%" stopColor="white" stopOpacity="0.55" />
-        </linearGradient>
-        <linearGradient id="tt-blue-fade" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#2563eb" stopOpacity="0.55" />
-          <stop offset="100%" stopColor="#2563eb" stopOpacity="1" />
+        <linearGradient id="tt-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#3b82f6" />
+          <stop offset="100%" stopColor="#1d4ed8" />
         </linearGradient>
       </defs>
 
-      {/* White T — italic parallelogram crossbar, fades right toward split */}
-      <path d="M5,6 L25,6 L22,15 L2,15 Z" fill="url(#tt-white-fade)" />
-      <rect x="11" y="14" width="5" height="36" fill="url(#tt-white-fade)" />
+      {/* White T — italic parallelogram crossbar + slim stem */}
+      <path d="M5,4 L25,4 L21,14 L1,14 Z" fill="white" />
+      <rect x="10" y="13" width="6" height="22" fill="white" />
 
-      {/* Blue T — same shape, fades left toward split, 5px diagonal gap */}
-      <path d="M30,6 L50,6 L47,15 L27,15 Z" fill="url(#tt-blue-fade)" />
-      <rect x="36" y="14" width="5" height="36" fill="url(#tt-blue-fade)" />
+      {/* Blue T — identical shape, 4px diagonal gap from white */}
+      <path d="M29,4 L49,4 L45,14 L25,14 Z" fill="url(#tt-blue)" />
+      <rect x="34" y="13" width="6" height="22" fill="url(#tt-blue)" />
     </svg>
   );
 }
