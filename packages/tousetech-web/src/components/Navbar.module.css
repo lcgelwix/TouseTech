@@ -15,6 +15,12 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
+.brandLogo {
+  width: 50px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
 .brand {
   display: flex;
   align-items: center;
