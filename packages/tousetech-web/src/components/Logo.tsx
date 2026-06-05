@@ -1,7 +1,7 @@
 export default function Logo() {
   return (
     <svg
-      viewBox="0 0 44 44"
+      viewBox="0 0 52 56"
       xmlns="http://www.w3.org/2000/svg"
       aria-label="TouseTech logo"
       role="img"
@@ -13,17 +13,13 @@ export default function Logo() {
         </linearGradient>
       </defs>
 
-      {/* White T — slim crossbar, single diagonal slat, narrow stem */}
-      <path
-        d="M3,6 L22,6 L20,13 L15,13 L15,39 L10,39 L10,13 L3,13 Z"
-        fill="white"
-      />
+      {/* White T — upper position, behind */}
+      <path d="M8,9 L34,9 L28,19 L2,19 Z" fill="white" />
+      <rect x="14" y="18" width="6" height="34" fill="white" />
 
-      {/* Blue T — mirrored slat, matching slim proportions */}
-      <path
-        d="M23,6 L41,6 L41,13 L34,13 L34,39 L29,39 L29,13 L21,13 Z"
-        fill="url(#tt-blue)"
-      />
+      {/* Blue T — lower-right, in front, overlaps white slightly */}
+      <path d="M20,17 L48,17 L42,29 L14,29 Z" fill="url(#tt-blue)" />
+      <rect x="28" y="28" width="6" height="24" fill="url(#tt-blue)" />
     </svg>
   );
 }
