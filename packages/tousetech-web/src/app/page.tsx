@@ -3,13 +3,12 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
+import ConsultForm from '../components/ConsultForm';
 import styles from './page.module.css';
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [openProject, setOpenProject] = useState<number | null>(null);
-  const [consultForm, setConsultForm] = useState({ name: '', business: '', email: '', phone: '', message: '' });
-  const [consultStatus, setConsultStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -24,25 +23,6 @@ export default function Home() {
     document.body.style.overflow = openProject !== null ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [openProject]);
-
-  function handleConsultChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
-    setConsultForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
-  }
-
-  async function handleConsultSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setConsultStatus('sending');
-    try {
-      const res = await fetch('/api/consultation', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(consultForm),
-      });
-      setConsultStatus(res.ok ? 'success' : 'error');
-    } catch {
-      setConsultStatus('error');
-    }
-  }
 
   return (
     <>
@@ -294,44 +274,7 @@ export default function Home() {
                 </div>
               </div>
               <div className={styles.consultRight}>
-                {consultStatus === 'success' ? (
-                  <div className={styles.consultSuccess}>
-                    <div className={styles.successIcon}>✓</div>
-                    <h3>Request Received!</h3>
-                    <p>We'll be in touch within 24 hours to discuss your project.</p>
-                  </div>
-                ) : (
-                  <form className={styles.consultForm} onSubmit={handleConsultSubmit}>
-                    <div className={styles.formRow}>
-                      <div className={styles.formField}>
-                        <label htmlFor="cname">Your Name *</label>
-                        <input id="cname" name="name" type="text" placeholder="John Smith" required value={consultForm.name} onChange={handleConsultChange} />
-                      </div>
-                      <div className={styles.formField}>
-                        <label htmlFor="cbusiness">Business Name</label>
-                        <input id="cbusiness" name="business" type="text" placeholder="Your Business" value={consultForm.business} onChange={handleConsultChange} />
-                      </div>
-                    </div>
-                    <div className={styles.formRow}>
-                      <div className={styles.formField}>
-                        <label htmlFor="cemail">Email Address *</label>
-                        <input id="cemail" name="email" type="email" placeholder="you@email.com" required value={consultForm.email} onChange={handleConsultChange} />
-                      </div>
-                      <div className={styles.formField}>
-                        <label htmlFor="cphone">Phone Number</label>
-                        <input id="cphone" name="phone" type="tel" placeholder="(000) 000-0000" value={consultForm.phone} onChange={handleConsultChange} />
-                      </div>
-                    </div>
-                    <div className={styles.formField}>
-                      <label htmlFor="cmessage">Tell Us About Your Business</label>
-                      <textarea id="cmessage" name="message" rows={4} placeholder="What does your business do? What are your website goals?" value={consultForm.message} onChange={handleConsultChange} />
-                    </div>
-                    {consultStatus === 'error' && <p className={styles.formError}>Something went wrong. Please try again.</p>}
-                    <button type="submit" className={styles.consultBtn} disabled={consultStatus === 'sending'}>
-                      {consultStatus === 'sending' ? 'Sending...' : 'Request My Free Consultation →'}
-                    </button>
-                  </form>
-                )}
+                <ConsultForm />
               </div>
             </div>
           </div>
