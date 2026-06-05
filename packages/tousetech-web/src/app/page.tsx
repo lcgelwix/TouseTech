@@ -1050,8 +1050,8 @@ const industries = [
 
 const pricing = [
   { name: 'Starter', tagline: 'Get your business online fast.', price: '$499', popular: false, features: ['Custom Single-Page Website', 'Mobile Responsive Design', 'Contact Form'] },
-  { name: 'Growth', tagline: 'For businesses ready to grow.', price: '$999', popular: true, features: ['Up to 5 Pages', 'Google Business Profile Setup', 'Performance Optimization', 'Ongoing Updates & Support'] },
-  { name: 'Premium', tagline: 'The complete business solution.', price: '$1,400', popular: false, features: ['Everything in Growth', 'Up to 10 Pages', 'Advanced SEO Optimization', 'Priority Support', '30-Day Post-Launch Care'] },
+  { name: 'Growth', tagline: 'For businesses ready to grow.', price: '$899', popular: true, features: ['Up to 5 Pages', 'Google Business Profile Setup', 'Performance Optimization', 'Ongoing Updates & Support'] },
+  { name: 'Premium', tagline: 'The complete business solution.', price: '$1,350', popular: false, features: ['Everything in Growth', 'Up to 10 Pages', 'Advanced SEO Optimization', 'Priority Support', '30-Day Post-Launch Care'] },
 ];
 
 const faqs = [
