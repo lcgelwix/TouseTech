@@ -405,6 +405,9 @@ export default function Home() {
                   <div className={styles.pricingTop}>
                     <h3 className={styles.pricingName}>{plan.name}</h3>
                     <p className={styles.pricingTagline}>{plan.tagline}</p>
+                    <div className={styles.pricingPrice}>
+                      <span className={styles.pricingAmount}>{plan.price}</span>
+                    </div>
                   </div>
                   <ul className={styles.pricingList}>
                     {plan.features.map((f, j) => (
@@ -1107,9 +1110,9 @@ const industries = [
 ];
 
 const pricing = [
-  { name: 'Starter', tagline: 'Perfect for small businesses.', popular: false, features: ['Custom Website', 'Mobile Responsive Design', 'Contact Form', 'Basic SEO Setup'] },
-  { name: 'Growth', tagline: 'For businesses ready to grow.', popular: true, features: ['Everything in Starter', 'Additional Pages', 'Google Business Profile Setup', 'Performance Optimization'] },
-  { name: 'Premium', tagline: 'The complete business solution.', popular: false, features: ['Everything in Growth', 'Content Creation Setup', 'Advanced Optimization', 'Priority Support'] },
+  { name: 'Starter', tagline: 'Get your business online fast.', price: '$499', popular: false, features: ['Custom Single-Page Website', 'Mobile Responsive Design', 'Contact Form'] },
+  { name: 'Growth', tagline: 'For businesses ready to grow.', price: '$999', popular: true, features: ['Up to 5 Pages', 'Google Business Profile Setup', 'Performance Optimization', 'Ongoing Updates & Support'] },
+  { name: 'Premium', tagline: 'The complete business solution.', price: '$1,799', popular: false, features: ['Everything in Growth', 'Up to 10 Pages', 'Advanced SEO Optimization', 'Priority Support', '30-Day Post-Launch Care'] },
 ];
 
 const faqs = [
